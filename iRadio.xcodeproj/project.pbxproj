@@ -13,26 +13,23 @@
 		F5F73A03188093F2009DD284 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5F73A01188093F2009DD284 /* InfoPlist.strings */; };
 		F5F73A05188093F2009DD284 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F73A04188093F2009DD284 /* main.m */; };
 		F5F73A09188093F2009DD284 /* comAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F73A08188093F2009DD284 /* comAppDelegate.m */; };
-		F5F73A0C188093F2009DD284 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5F73A0A188093F2009DD284 /* Main_iPhone.storyboard */; };
-		F5F73A0F188093F2009DD284 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5F73A0D188093F2009DD284 /* Main_iPad.storyboard */; };
-		F5F73A12188093F2009DD284 /* comViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F73A11188093F2009DD284 /* comViewController.m */; };
 		F5F73A14188093F2009DD284 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5F73A13188093F2009DD284 /* Images.xcassets */; };
-		F5F73A1B188093F3009DD284 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F73A1A188093F3009DD284 /* XCTest.framework */; };
-		F5F73A1C188093F3009DD284 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F739F8188093F2009DD284 /* Foundation.framework */; };
-		F5F73A1D188093F3009DD284 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F739FC188093F2009DD284 /* UIKit.framework */; };
-		F5F73A25188093F3009DD284 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5F73A23188093F3009DD284 /* InfoPlist.strings */; };
-		F5F73A27188093F3009DD284 /* iRadioTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F73A26188093F3009DD284 /* iRadioTests.m */; };
+		F5F73A5B188094D9009DD284 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F73A3C188094D9009DD284 /* libGoogleAdMobAds.a */; };
+		F5F73A5C188094D9009DD284 /* comContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F73A3F188094D9009DD284 /* comContactViewController.m */; };
+		F5F73A5D188094D9009DD284 /* comFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F73A41188094D9009DD284 /* comFavoriteViewController.m */; };
+		F5F73A5E188094D9009DD284 /* comInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F73A43188094D9009DD284 /* comInfoViewController.m */; };
+		F5F73A5F188094D9009DD284 /* comKategorieListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F73A45188094D9009DD284 /* comKategorieListViewController.m */; };
+		F5F73A60188094D9009DD284 /* comListenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F73A47188094D9009DD284 /* comListenViewController.m */; };
+		F5F73A61188094D9009DD284 /* comPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F73A49188094D9009DD284 /* comPlayerViewController.m */; };
+		F5F73A62188094D9009DD284 /* comRadiaListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F73A4B188094D9009DD284 /* comRadiaListViewController.m */; };
+		F5F73A63188094D9009DD284 /* comWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F73A4D188094D9009DD284 /* comWebViewController.m */; };
+		F5F73A64188094D9009DD284 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F73A50188094D9009DD284 /* AsyncImageView.m */; };
+		F5F73A65188094D9009DD284 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F73A52188094D9009DD284 /* Reachability.m */; };
+		F5F73A66188094D9009DD284 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F73A55188094D9009DD284 /* AudioStreamer.m */; };
+		F5F73A67188094D9009DD284 /* comPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F73A57188094D9009DD284 /* comPlayer.m */; };
+		F5F73A68188094D9009DD284 /* Storyboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5F73A59188094D9009DD284 /* Storyboard_iPad.storyboard */; };
+		F5F73A69188094D9009DD284 /* Storyboard_IPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5F73A5A188094D9009DD284 /* Storyboard_IPhone.storyboard */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		F5F73A1E188093F3009DD284 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F5F739ED188093F2009DD284 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F5F739F4188093F2009DD284;
-			remoteInfo = iRadio;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		F5F739F5188093F2009DD284 /* iRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,16 +42,46 @@
 		F5F73A06188093F2009DD284 /* iRadio-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iRadio-Prefix.pch"; sourceTree = "<group>"; };
 		F5F73A07188093F2009DD284 /* comAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = comAppDelegate.h; sourceTree = "<group>"; };
 		F5F73A08188093F2009DD284 /* comAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = comAppDelegate.m; sourceTree = "<group>"; };
-		F5F73A0B188093F2009DD284 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		F5F73A0E188093F2009DD284 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		F5F73A10188093F2009DD284 /* comViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = comViewController.h; sourceTree = "<group>"; };
-		F5F73A11188093F2009DD284 /* comViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = comViewController.m; sourceTree = "<group>"; };
 		F5F73A13188093F2009DD284 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		F5F73A19188093F3009DD284 /* iRadioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iRadioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5F73A1A188093F3009DD284 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		F5F73A22188093F3009DD284 /* iRadioTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iRadioTests-Info.plist"; sourceTree = "<group>"; };
-		F5F73A24188093F3009DD284 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		F5F73A26188093F3009DD284 /* iRadioTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iRadioTests.m; sourceTree = "<group>"; };
+		F5F73A31188094D8009DD284 /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
+		F5F73A32188094D9009DD284 /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
+		F5F73A33188094D9009DD284 /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
+		F5F73A34188094D9009DD284 /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerView.h; sourceTree = "<group>"; };
+		F5F73A35188094D9009DD284 /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerViewDelegate.h; sourceTree = "<group>"; };
+		F5F73A36188094D9009DD284 /* GADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitial.h; sourceTree = "<group>"; };
+		F5F73A37188094D9009DD284 /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitialDelegate.h; sourceTree = "<group>"; };
+		F5F73A38188094D9009DD284 /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequest.h; sourceTree = "<group>"; };
+		F5F73A39188094D9009DD284 /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
+		F5F73A3A188094D9009DD284 /* GADSearchBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADSearchBannerView.h; sourceTree = "<group>"; };
+		F5F73A3B188094D9009DD284 /* GADSearchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADSearchRequest.h; sourceTree = "<group>"; };
+		F5F73A3C188094D9009DD284 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAdMobAds.a; path = iRadio/AdMob/libGoogleAdMobAds.a; sourceTree = "<group>"; };
+		F5F73A3E188094D9009DD284 /* comContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comContactViewController.h; sourceTree = "<group>"; };
+		F5F73A3F188094D9009DD284 /* comContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comContactViewController.m; sourceTree = "<group>"; };
+		F5F73A40188094D9009DD284 /* comFavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comFavoriteViewController.h; sourceTree = "<group>"; };
+		F5F73A41188094D9009DD284 /* comFavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comFavoriteViewController.m; sourceTree = "<group>"; };
+		F5F73A42188094D9009DD284 /* comInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comInfoViewController.h; sourceTree = "<group>"; };
+		F5F73A43188094D9009DD284 /* comInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comInfoViewController.m; sourceTree = "<group>"; };
+		F5F73A44188094D9009DD284 /* comKategorieListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comKategorieListViewController.h; sourceTree = "<group>"; };
+		F5F73A45188094D9009DD284 /* comKategorieListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comKategorieListViewController.m; sourceTree = "<group>"; };
+		F5F73A46188094D9009DD284 /* comListenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comListenViewController.h; sourceTree = "<group>"; };
+		F5F73A47188094D9009DD284 /* comListenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comListenViewController.m; sourceTree = "<group>"; };
+		F5F73A48188094D9009DD284 /* comPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comPlayerViewController.h; sourceTree = "<group>"; };
+		F5F73A49188094D9009DD284 /* comPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comPlayerViewController.m; sourceTree = "<group>"; };
+		F5F73A4A188094D9009DD284 /* comRadiaListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comRadiaListViewController.h; sourceTree = "<group>"; };
+		F5F73A4B188094D9009DD284 /* comRadiaListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comRadiaListViewController.m; sourceTree = "<group>"; };
+		F5F73A4C188094D9009DD284 /* comWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comWebViewController.h; sourceTree = "<group>"; };
+		F5F73A4D188094D9009DD284 /* comWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comWebViewController.m; sourceTree = "<group>"; };
+		F5F73A4F188094D9009DD284 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
+		F5F73A50188094D9009DD284 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
+		F5F73A51188094D9009DD284 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		F5F73A52188094D9009DD284 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		F5F73A54188094D9009DD284 /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
+		F5F73A55188094D9009DD284 /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStreamer.m; sourceTree = "<group>"; };
+		F5F73A56188094D9009DD284 /* comPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comPlayer.h; sourceTree = "<group>"; };
+		F5F73A57188094D9009DD284 /* comPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comPlayer.m; sourceTree = "<group>"; };
+		F5F73A59188094D9009DD284 /* Storyboard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard_iPad.storyboard; sourceTree = "<group>"; };
+		F5F73A5A188094D9009DD284 /* Storyboard_IPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard_IPhone.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,18 +90,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5F739FB188093F2009DD284 /* CoreGraphics.framework in Frameworks */,
+				F5F73A5B188094D9009DD284 /* libGoogleAdMobAds.a in Frameworks */,
 				F5F739FD188093F2009DD284 /* UIKit.framework in Frameworks */,
 				F5F739F9188093F2009DD284 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F5F73A16188093F3009DD284 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F5F73A1B188093F3009DD284 /* XCTest.framework in Frameworks */,
-				F5F73A1D188093F3009DD284 /* UIKit.framework in Frameworks */,
-				F5F73A1C188093F3009DD284 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,7 +103,6 @@
 			isa = PBXGroup;
 			children = (
 				F5F739FE188093F2009DD284 /* iRadio */,
-				F5F73A20188093F3009DD284 /* iRadioTests */,
 				F5F739F7188093F2009DD284 /* Frameworks */,
 				F5F739F6188093F2009DD284 /* Products */,
 			);
@@ -95,7 +112,6 @@
 			isa = PBXGroup;
 			children = (
 				F5F739F5188093F2009DD284 /* iRadio.app */,
-				F5F73A19188093F3009DD284 /* iRadioTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,6 +119,7 @@
 		F5F739F7188093F2009DD284 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F5F73A3C188094D9009DD284 /* libGoogleAdMobAds.a */,
 				F5F739F8188093F2009DD284 /* Foundation.framework */,
 				F5F739FA188093F2009DD284 /* CoreGraphics.framework */,
 				F5F739FC188093F2009DD284 /* UIKit.framework */,
@@ -114,12 +131,13 @@
 		F5F739FE188093F2009DD284 /* iRadio */ = {
 			isa = PBXGroup;
 			children = (
+				F5F73A30188094D8009DD284 /* AdMob */,
+				F5F73A3D188094D9009DD284 /* Classes */,
+				F5F73A4E188094D9009DD284 /* Common */,
+				F5F73A53188094D9009DD284 /* Player */,
+				F5F73A58188094D9009DD284 /* Storyboard */,
 				F5F73A07188093F2009DD284 /* comAppDelegate.h */,
 				F5F73A08188093F2009DD284 /* comAppDelegate.m */,
-				F5F73A0A188093F2009DD284 /* Main_iPhone.storyboard */,
-				F5F73A0D188093F2009DD284 /* Main_iPad.storyboard */,
-				F5F73A10188093F2009DD284 /* comViewController.h */,
-				F5F73A11188093F2009DD284 /* comViewController.m */,
 				F5F73A13188093F2009DD284 /* Images.xcassets */,
 				F5F739FF188093F2009DD284 /* Supporting Files */,
 			);
@@ -137,22 +155,76 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		F5F73A20188093F3009DD284 /* iRadioTests */ = {
+		F5F73A30188094D8009DD284 /* AdMob */ = {
 			isa = PBXGroup;
 			children = (
-				F5F73A26188093F3009DD284 /* iRadioTests.m */,
-				F5F73A21188093F3009DD284 /* Supporting Files */,
+				F5F73A31188094D8009DD284 /* GADAdMobExtras.h */,
+				F5F73A32188094D9009DD284 /* GADAdNetworkExtras.h */,
+				F5F73A33188094D9009DD284 /* GADAdSize.h */,
+				F5F73A34188094D9009DD284 /* GADBannerView.h */,
+				F5F73A35188094D9009DD284 /* GADBannerViewDelegate.h */,
+				F5F73A36188094D9009DD284 /* GADInterstitial.h */,
+				F5F73A37188094D9009DD284 /* GADInterstitialDelegate.h */,
+				F5F73A38188094D9009DD284 /* GADRequest.h */,
+				F5F73A39188094D9009DD284 /* GADRequestError.h */,
+				F5F73A3A188094D9009DD284 /* GADSearchBannerView.h */,
+				F5F73A3B188094D9009DD284 /* GADSearchRequest.h */,
 			);
-			path = iRadioTests;
+			path = AdMob;
 			sourceTree = "<group>";
 		};
-		F5F73A21188093F3009DD284 /* Supporting Files */ = {
+		F5F73A3D188094D9009DD284 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				F5F73A22188093F3009DD284 /* iRadioTests-Info.plist */,
-				F5F73A23188093F3009DD284 /* InfoPlist.strings */,
+				F5F73A3E188094D9009DD284 /* comContactViewController.h */,
+				F5F73A3F188094D9009DD284 /* comContactViewController.m */,
+				F5F73A40188094D9009DD284 /* comFavoriteViewController.h */,
+				F5F73A41188094D9009DD284 /* comFavoriteViewController.m */,
+				F5F73A42188094D9009DD284 /* comInfoViewController.h */,
+				F5F73A43188094D9009DD284 /* comInfoViewController.m */,
+				F5F73A44188094D9009DD284 /* comKategorieListViewController.h */,
+				F5F73A45188094D9009DD284 /* comKategorieListViewController.m */,
+				F5F73A46188094D9009DD284 /* comListenViewController.h */,
+				F5F73A47188094D9009DD284 /* comListenViewController.m */,
+				F5F73A48188094D9009DD284 /* comPlayerViewController.h */,
+				F5F73A49188094D9009DD284 /* comPlayerViewController.m */,
+				F5F73A4A188094D9009DD284 /* comRadiaListViewController.h */,
+				F5F73A4B188094D9009DD284 /* comRadiaListViewController.m */,
+				F5F73A4C188094D9009DD284 /* comWebViewController.h */,
+				F5F73A4D188094D9009DD284 /* comWebViewController.m */,
 			);
-			name = "Supporting Files";
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		F5F73A4E188094D9009DD284 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F5F73A4F188094D9009DD284 /* AsyncImageView.h */,
+				F5F73A50188094D9009DD284 /* AsyncImageView.m */,
+				F5F73A51188094D9009DD284 /* Reachability.h */,
+				F5F73A52188094D9009DD284 /* Reachability.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F5F73A53188094D9009DD284 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				F5F73A54188094D9009DD284 /* AudioStreamer.h */,
+				F5F73A55188094D9009DD284 /* AudioStreamer.m */,
+				F5F73A56188094D9009DD284 /* comPlayer.h */,
+				F5F73A57188094D9009DD284 /* comPlayer.m */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		F5F73A58188094D9009DD284 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				F5F73A59188094D9009DD284 /* Storyboard_iPad.storyboard */,
+				F5F73A5A188094D9009DD284 /* Storyboard_IPhone.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,24 +247,6 @@
 			productReference = F5F739F5188093F2009DD284 /* iRadio.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F5F73A18188093F3009DD284 /* iRadioTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F5F73A2D188093F3009DD284 /* Build configuration list for PBXNativeTarget "iRadioTests" */;
-			buildPhases = (
-				F5F73A15188093F3009DD284 /* Sources */,
-				F5F73A16188093F3009DD284 /* Frameworks */,
-				F5F73A17188093F3009DD284 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F5F73A1F188093F3009DD284 /* PBXTargetDependency */,
-			);
-			name = iRadioTests;
-			productName = iRadioTests;
-			productReference = F5F73A19188093F3009DD284 /* iRadioTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -203,8 +257,8 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Jan Damek";
 				TargetAttributes = {
-					F5F73A18188093F3009DD284 = {
-						TestTargetID = F5F739F4188093F2009DD284;
+					F5F739F4188093F2009DD284 = {
+						DevelopmentTeam = GR74KSG8M9;
 					};
 				};
 			};
@@ -222,7 +276,6 @@
 			projectRoot = "";
 			targets = (
 				F5F739F4188093F2009DD284 /* iRadio */,
-				F5F73A18188093F3009DD284 /* iRadioTests */,
 			);
 		};
 /* End PBXProject section */
@@ -232,18 +285,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5F73A0F188093F2009DD284 /* Main_iPad.storyboard in Resources */,
 				F5F73A14188093F2009DD284 /* Images.xcassets in Resources */,
-				F5F73A0C188093F2009DD284 /* Main_iPhone.storyboard in Resources */,
 				F5F73A03188093F2009DD284 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F5F73A17188093F3009DD284 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F5F73A25188093F3009DD284 /* InfoPlist.strings in Resources */,
+				F5F73A69188094D9009DD284 /* Storyboard_IPhone.storyboard in Resources */,
+				F5F73A68188094D9009DD284 /* Storyboard_iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,59 +299,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5F73A12188093F2009DD284 /* comViewController.m in Sources */,
+				F5F73A60188094D9009DD284 /* comListenViewController.m in Sources */,
+				F5F73A5D188094D9009DD284 /* comFavoriteViewController.m in Sources */,
+				F5F73A5E188094D9009DD284 /* comInfoViewController.m in Sources */,
+				F5F73A66188094D9009DD284 /* AudioStreamer.m in Sources */,
+				F5F73A5F188094D9009DD284 /* comKategorieListViewController.m in Sources */,
+				F5F73A5C188094D9009DD284 /* comContactViewController.m in Sources */,
+				F5F73A64188094D9009DD284 /* AsyncImageView.m in Sources */,
+				F5F73A62188094D9009DD284 /* comRadiaListViewController.m in Sources */,
 				F5F73A09188093F2009DD284 /* comAppDelegate.m in Sources */,
+				F5F73A63188094D9009DD284 /* comWebViewController.m in Sources */,
 				F5F73A05188093F2009DD284 /* main.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F5F73A15188093F3009DD284 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F5F73A27188093F3009DD284 /* iRadioTests.m in Sources */,
+				F5F73A65188094D9009DD284 /* Reachability.m in Sources */,
+				F5F73A67188094D9009DD284 /* comPlayer.m in Sources */,
+				F5F73A61188094D9009DD284 /* comPlayerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		F5F73A1F188093F3009DD284 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F5F739F4188093F2009DD284 /* iRadio */;
-			targetProxy = F5F73A1E188093F3009DD284 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F5F73A01188093F2009DD284 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F5F73A02188093F2009DD284 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		F5F73A0A188093F2009DD284 /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F5F73A0B188093F2009DD284 /* Base */,
-			);
-			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		F5F73A0D188093F2009DD284 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F5F73A0E188093F2009DD284 /* Base */,
-			);
-			name = Main_iPad.storyboard;
-			sourceTree = "<group>";
-		};
-		F5F73A23188093F3009DD284 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F5F73A24188093F3009DD284 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -393,9 +409,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iRadio/iRadio-Prefix.pch";
 				INFOPLIST_FILE = "iRadio/iRadio-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/jandamek/Desktop/iRadio/iRadio/AdMob,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -406,53 +427,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iRadio/iRadio-Prefix.pch";
 				INFOPLIST_FILE = "iRadio/iRadio-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/jandamek/Desktop/iRadio/iRadio/AdMob,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		F5F73A2E188093F3009DD284 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iRadio.app/iRadio";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iRadio/iRadio-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "iRadioTests/iRadioTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		F5F73A2F188093F3009DD284 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iRadio.app/iRadio";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iRadio/iRadio-Prefix.pch";
-				INFOPLIST_FILE = "iRadioTests/iRadioTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -473,14 +457,6 @@
 			buildConfigurations = (
 				F5F73A2B188093F3009DD284 /* Debug */,
 				F5F73A2C188093F3009DD284 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		F5F73A2D188093F3009DD284 /* Build configuration list for PBXNativeTarget "iRadioTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F5F73A2E188093F3009DD284 /* Debug */,
-				F5F73A2F188093F3009DD284 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
