@@ -7,24 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import <AVFoundation/AVFoundation.h>
-//#import <AudioToolbox/AudioToolbox.h>
-//#import <MediaPlayer/MPMusicPlayerController.h>
 #import "comPlayer.h"
 #import "comWebViewController.h"
 #import "GADBannerView.h"
 #import "comListenViewController.h"
-#import "comKategorieListViewController.h"
 #import "comFavoriteViewController.h"
 #import "comPlayerViewController.h"
-#import "GAITracker.h"
 
 @protocol UpdateABRadio
 -(void)updateTableView;
 -(void)updateActualSong;
 @end
 
-@interface comAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate, NSXMLParserDelegate, comPlayerDelegate>{
+@interface comAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate, NSXMLParserDelegate, comPlayerDelegate, AVAudioPlayerDelegate>{
     
     NSString *_currentElement;
     NSMutableString *_ElementValue;
@@ -69,7 +64,6 @@
     NSTimer *_sleepTimer;
     UIBackgroundTaskIdentifier _backgroundTask; 
     
-   
     NSUserDefaults *_defaults;   
     
     UIActivityIndicatorView *_ani;
@@ -80,9 +74,7 @@
 }
 
 @property (readwrite) unsigned int radioList;
-
 @property (strong, nonatomic) UIWindow *window;
-
 @property (strong, nonatomic) UITextView *description;
 @property (readonly, getter = getRate) float rate;
 @property (readonly) NSMutableDictionary *imageList;
@@ -97,11 +89,9 @@
 @property (readwrite) BOOL isInSleep;
 @property (readwrite) int sleepTimeLeft;
 @property (strong, nonatomic) UILabel *sleepLabel;
-@property (readwrite) int cntBaner;
 @property (strong, nonatomic) NSString *requestURL;
 @property (strong, nonatomic) UITableView *table;
 @property BOOL clicked;
-@property (nonatomic, strong) id<GAITracker> tracker;
 @property (nonatomic, strong) NSMutableArray *categoryAktual;
 
 + (GADBannerView*) getBanner;

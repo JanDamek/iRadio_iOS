@@ -17,7 +17,6 @@
 #import "comWebViewController.h"
 #import "comAppDelegate.h"
 #import "comContactViewController.h"
-#include "GAITracker.h"
 
 NSString *kURLFacebook = @"http://www.facebook.com/pages/ABradiocz/111460366985";
 
@@ -35,7 +34,6 @@ NSString *kURLFacebook = @"http://www.facebook.com/pages/ABradiocz/111460366985"
 {
     program = YES;
     comAppDelegate *_delegate = (comAppDelegate*)[[UIApplication sharedApplication] delegate];
-    [_delegate.tracker set:@"WebView" value:[_delegate prg]];
     _delegate.requestURL = [_delegate prg];
 }
 
@@ -68,10 +66,7 @@ NSString *kURLFacebook = @"http://www.facebook.com/pages/ABradiocz/111460366985"
     [super viewDidLoad];
     
     comAppDelegate *_delegate = (comAppDelegate*)[[UIApplication sharedApplication] delegate];
-    
-    self.tracker = _delegate.tracker;
-    self.screenName = @"Player View";
-    
+        
     NSString *lo;
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         lo = @"logo";

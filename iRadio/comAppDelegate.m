@@ -15,8 +15,6 @@
 //#import <MediaPlayer/MPMusicPlayerController.h>
 
 #import "AsyncImageView.h"
-#import "GAITracker.h"
-#import "GAI.h"
 
 #import "Reachability.h"
 
@@ -57,7 +55,7 @@ NSString *MyAdBanerIDiPad   = @"a14fd855405a384";
 @synthesize sleepTimeLeft = _sleepTimeLeft;
 @synthesize activity = _activity;
 @synthesize sleepLabel = _sleepLabel;
-@synthesize cntBaner = _cntBaner;
+
 @synthesize categoryAktual = _categoryAktual;
 
 + (GADBannerView*)getBanner
@@ -65,25 +63,16 @@ NSString *MyAdBanerIDiPad   = @"a14fd855405a384";
     comAppDelegate *delegate = (comAppDelegate*)[[UIApplication sharedApplication] delegate];
     //kGADAdSizeBanner
     GADBannerView *_banner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait];
-    if (delegate.cntBaner==0){
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
             _banner.adUnitID = MyAdBanerIDiPhone;
         } else {
             _banner.adUnitID = MyAdBanerIDiPad;
-        }}else {
-            if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-                _banner.adUnitID =@"a14fb5734d516b3";
-            } else {
-                _banner.adUnitID = @"a14fb573e1ec2cd";
-            }    }
+        }
+    
     _banner.rootViewController = delegate.window.rootViewController;
     
     [_banner loadRequest:[GADRequest request]];
     
-    delegate.cntBaner++;
-    if (delegate.cntBaner==3){
-        delegate.cntBaner=0;
-    }
     return _banner;
 }
 
@@ -172,11 +161,33 @@ NSString *MyAdBanerIDiPad   = @"a14fd855405a384";
     
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     
-    NSError *sessionError = nil;
-    [[AVAudioSession sharedInstance] setDelegate:self];
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&sessionError];
-    UInt32 doChangeDefaultRoute = 1;
-    AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryDefaultToSpeaker, sizeof(doChangeDefaultRoute), &doChangeDefaultRoute);
+    //get your app's audioSession singleton object
+    AVAudioSession* session = [AVAudioSession sharedInstance];
+    
+    //error handling
+    BOOL success;
+    NSError* error;
+    
+    //set the audioSession category.
+    //Needs to be Record or PlayAndRecord to use audioRouteOverride:
+    
+    success = [session setCategory:AVAudioSessionCategoryPlayback error:&error];
+    
+    if (!success)
+        NSLog(@"AVAudioSession error setting category:%@",error);
+    
+    //set the audioSession override
+    success = [session overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker
+                                         error:&error];
+    if (!success)
+        NSLog(@"AVAudioSession error overrideOutputAudioPort:%@",error);
+    
+    //activate the audio session
+    success = [session setActive:YES error:&error];
+    if (!success)
+        NSLog(@"AVAudioSession error activating: %@",error);
+    else
+        NSLog(@"audioSession active");
     
     [self.window makeKeyAndVisible];
     
@@ -194,15 +205,6 @@ NSString *MyAdBanerIDiPad   = @"a14fd855405a384";
     _ani.hidesWhenStopped=NO;
     [_ani setHidden:YES];
     [_ani stopAnimating];
-    
-    [GAI sharedInstance].optOut =
-    ![[NSUserDefaults standardUserDefaults] boolForKey:kAllowTracking];
-    // Initialize Google Analytics with a 120-second dispatch interval. There is a
-    // tradeoff between battery usage and timely dispatch.
-    [GAI sharedInstance].dispatchInterval = 120;
-    [GAI sharedInstance].trackUncaughtExceptions = YES;
-    self.tracker = [[GAI sharedInstance] trackerWithName:@"ABRadio iOS Player"
-                                              trackingId:kTrackingId];
     
     return YES;
 }
@@ -919,10 +921,6 @@ NSString *MyAdBanerIDiPad   = @"a14fd855405a384";
         id path = [url stringByReplacingOccurrencesOfString:@"\n" withString:@""];
         path = [path stringByReplacingOccurrencesOfString:@"\t" withString:@""];
         
-        
-        NSString *pageviewName = @"Start radia:";
-        [self.tracker set:pageviewName value:path];
-        
         _playerClass.streamURL = path;
         [_playerClass play];
         
@@ -953,9 +951,6 @@ NSString *MyAdBanerIDiPad   = @"a14fd855405a384";
     [UIApplication sharedApplication].idleTimerDisabled = NO;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         
-    NSString *pageviewName = @"Stop radia";
-    [self.tracker set:pageviewName value:@""];
-    //    [self hrajeBtn];
     [_activity setHidden:YES];
     [_activity stopAnimating];
     

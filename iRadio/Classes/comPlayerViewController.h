@@ -9,9 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MPVolumeView.h>
-#import "GAITrackedViewController.h"
 
-@interface comPlayerViewController : GAITrackedViewController{
+@interface comPlayerViewController : UIViewController{
         
     UIImageView *logoImage;
     UIImageView *artImageView;
