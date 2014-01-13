@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F5F739F4188093F2009DD284"
                BuildableName = "iRadio.app"
-               BlueprintName = "iRadio"
-               ReferencedContainer = "container:iRadio.xcodeproj">
+               BlueprintName = "iRadioHD"
+               ReferencedContainer = "container:iRadioHD.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "F5F73A18188093F3009DD284"
                BuildableName = "iRadioTests.xctest"
                BlueprintName = "iRadioTests"
-               ReferencedContainer = "container:iRadio.xcodeproj">
+               ReferencedContainer = "container:iRadioHD.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F5F739F4188093F2009DD284"
             BuildableName = "iRadio.app"
-            BlueprintName = "iRadio"
-            ReferencedContainer = "container:iRadio.xcodeproj">
+            BlueprintName = "iRadioHD"
+            ReferencedContainer = "container:iRadioHD.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F5F739F4188093F2009DD284"
             BuildableName = "iRadio.app"
-            BlueprintName = "iRadio"
-            ReferencedContainer = "container:iRadio.xcodeproj">
+            BlueprintName = "iRadioHD"
+            ReferencedContainer = "container:iRadioHD.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,8 +81,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F5F739F4188093F2009DD284"
             BuildableName = "iRadio.app"
-            BlueprintName = "iRadio"
-            ReferencedContainer = "container:iRadio.xcodeproj">
+            BlueprintName = "iRadioHD"
+            ReferencedContainer = "container:iRadioHD.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

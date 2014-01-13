@@ -69,14 +69,14 @@
 		F5B35360188318190011ADD7 /* Listened.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Listened.m; path = DataModel/Listened.m; sourceTree = "<group>"; };
 		F5B35362188318190011ADD7 /* Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stream.h; path = DataModel/Stream.h; sourceTree = "<group>"; };
 		F5B35363188318190011ADD7 /* Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Stream.m; path = DataModel/Stream.m; sourceTree = "<group>"; };
-		F5F739F5188093F2009DD284 /* iRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5F739F5188093F2009DD284 /* iRadioHD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRadioHD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5F739F8188093F2009DD284 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F5F739FA188093F2009DD284 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		F5F739FC188093F2009DD284 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		F5F73A00188093F2009DD284 /* iRadio-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iRadio-Info.plist"; sourceTree = "<group>"; };
+		F5F73A00188093F2009DD284 /* iRadioHD-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iRadioHD-Info.plist"; sourceTree = "<group>"; };
 		F5F73A02188093F2009DD284 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F5F73A04188093F2009DD284 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F5F73A06188093F2009DD284 /* iRadio-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iRadio-Prefix.pch"; sourceTree = "<group>"; };
+		F5F73A06188093F2009DD284 /* iRadioHD-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iRadioHD-Prefix.pch"; sourceTree = "<group>"; };
 		F5F73A07188093F2009DD284 /* comAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = comAppDelegate.h; sourceTree = "<group>"; };
 		F5F73A08188093F2009DD284 /* comAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = comAppDelegate.m; sourceTree = "<group>"; };
 		F5F73A13188093F2009DD284 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -194,7 +194,7 @@
 		F5F739F6188093F2009DD284 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F5F739F5188093F2009DD284 /* iRadio.app */,
+				F5F739F5188093F2009DD284 /* iRadioHD.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -247,10 +247,10 @@
 		F5F739FF188093F2009DD284 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F5F73A00188093F2009DD284 /* iRadio-Info.plist */,
+				F5F73A00188093F2009DD284 /* iRadioHD-Info.plist */,
 				F5F73A01188093F2009DD284 /* InfoPlist.strings */,
 				F5F73A04188093F2009DD284 /* main.m */,
-				F5F73A06188093F2009DD284 /* iRadio-Prefix.pch */,
+				F5F73A06188093F2009DD284 /* iRadioHD-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -330,9 +330,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F5F739F4188093F2009DD284 /* iRadio */ = {
+		F5F739F4188093F2009DD284 /* iRadioHD */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F5F73A2A188093F3009DD284 /* Build configuration list for PBXNativeTarget "iRadio" */;
+			buildConfigurationList = F5F73A2A188093F3009DD284 /* Build configuration list for PBXNativeTarget "iRadioHD" */;
 			buildPhases = (
 				F5F739F1188093F2009DD284 /* Sources */,
 				F5F739F2188093F2009DD284 /* Frameworks */,
@@ -342,9 +342,9 @@
 			);
 			dependencies = (
 			);
-			name = iRadio;
+			name = iRadioHD;
 			productName = iRadio;
-			productReference = F5F739F5188093F2009DD284 /* iRadio.app */;
+			productReference = F5F739F5188093F2009DD284 /* iRadioHD.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -362,7 +362,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F5F739F0188093F2009DD284 /* Build configuration list for PBXProject "iRadio" */;
+			buildConfigurationList = F5F739F0188093F2009DD284 /* Build configuration list for PBXProject "iRadioHD" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -375,7 +375,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F5F739F4188093F2009DD284 /* iRadio */,
+				F5F739F4188093F2009DD284 /* iRadioHD */,
 			);
 		};
 /* End PBXProject section */
@@ -517,13 +517,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iRadio/iRadio-Prefix.pch";
-				INFOPLIST_FILE = "iRadio/iRadio-Info.plist";
+				GCC_PREFIX_HEADER = "iRadio/iRadioHD-Prefix.pch";
+				INFOPLIST_FILE = "iRadio/iRadioHD-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/jandamek/Desktop/iRadio/iRadio/AdMob,
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iRadioHD;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -535,13 +535,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iRadio/iRadio-Prefix.pch";
-				INFOPLIST_FILE = "iRadio/iRadio-Info.plist";
+				GCC_PREFIX_HEADER = "iRadio/iRadioHD-Prefix.pch";
+				INFOPLIST_FILE = "iRadio/iRadioHD-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/jandamek/Desktop/iRadio/iRadio/AdMob,
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iRadioHD;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -549,7 +549,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F5F739F0188093F2009DD284 /* Build configuration list for PBXProject "iRadio" */ = {
+		F5F739F0188093F2009DD284 /* Build configuration list for PBXProject "iRadioHD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F5F73A28188093F3009DD284 /* Debug */,
@@ -558,7 +558,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F5F73A2A188093F3009DD284 /* Build configuration list for PBXNativeTarget "iRadio" */ = {
+		F5F73A2A188093F3009DD284 /* Build configuration list for PBXNativeTarget "iRadioHD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F5F73A2B188093F3009DD284 /* Debug */,
