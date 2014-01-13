@@ -10,6 +10,8 @@
 #import "comFavoriteViewController.h"
 #import "comWebViewController.h"
 #import "comPlayerViewController.h"
+#import "comCategoryViewController.h"
+#import "comDetailViewController.h"
 
 //#import <AVFoundation/AVFoundation.h>
 //#import <MediaPlayer/MPMusicPlayerController.h>
@@ -31,13 +33,6 @@ NSString *kURLXMLData       = @"http://m.abradio.cz/export/xmlsearch/?q=";
 NSString *MyAdBanerIDiPhone = @"a14fd85404797af";
 NSString *MyAdBanerIDiPad   = @"a14fd855405a384";
 
-//#pragma mark -
-//@interface comAppDelegate (Player)
-//- (void)handleTimedMetadata:(AVMetadataItem*)timedMetadata;
-//- (void)assetFailedToPrepareForPlayback:(NSError *)error;
-//- (void)prepareToPlayAsset:(AVURLAsset *)asset withKeys:(NSArray *)requestedKeys;
-//@end
-
 @implementation comAppDelegate
 
 @synthesize window = _window;
@@ -55,6 +50,11 @@ NSString *MyAdBanerIDiPad   = @"a14fd855405a384";
 @synthesize sleepTimeLeft = _sleepTimeLeft;
 @synthesize activity = _activity;
 @synthesize sleepLabel = _sleepLabel;
+
+@synthesize managedObjectContext = _managedObjectContext;
+@synthesize managedObjectModel = _managedObjectModel;
+@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+
 
 @synthesize categoryAktual = _categoryAktual;
 
@@ -92,19 +92,6 @@ NSString *MyAdBanerIDiPad   = @"a14fd855405a384";
     _artImageView = nil;
     _isInLoadXML = NO;
     
-    UITabBar *tb = [UITabBar appearance];
-    UINavigationBar *nb = [UINavigationBar appearance];
-    UIBarButtonItem *bb = [UIBarButtonItem appearance];
-    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
-        // Load resources for iOS 6.1 or earlier
-        [tb setTintColor:[UIColor blackColor]];
-        [nb setTintColor:[UIColor blackColor]];
-        [bb setTintColor:[UIColor blackColor]];
-    }else{
-        [tb setTintColor:[UIColor whiteColor]];
-        [nb setTintColor:[UIColor whiteColor]];
-        [bb setTintColor:[UIColor whiteColor]];
-    }
     _playerClass = [[comPlayer alloc]initWithURL:kURLXMLData];
     _playerClass.delegate = self;
     
@@ -115,8 +102,6 @@ NSString *MyAdBanerIDiPad   = @"a14fd855405a384";
     
     _defaults = [NSUserDefaults standardUserDefaults];
        
-    _cntBaner = 0;
-    
     _imageList = [[NSMutableDictionary alloc] init];
     
     NSString *docsDir;
@@ -188,9 +173,7 @@ NSString *MyAdBanerIDiPad   = @"a14fd855405a384";
         NSLog(@"AVAudioSession error activating: %@",error);
     else
         NSLog(@"audioSession active");
-    
-    [self.window makeKeyAndVisible];
-    
+        
     [_ani setActivityIndicatorViewStyle: UIActivityIndicatorViewStyleWhiteLarge];
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         _ani.center = CGPointMake(160, 260);
@@ -206,6 +189,12 @@ NSString *MyAdBanerIDiPad   = @"a14fd855405a384";
     [_ani setHidden:YES];
     [_ani stopAnimating];
     
+    // Override point for customization after application launch.
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
+        UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
+        splitViewController.delegate = (id)navigationController.topViewController;
+    }
     return YES;
 }
 
@@ -474,7 +463,7 @@ NSString *MyAdBanerIDiPad   = @"a14fd855405a384";
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
     
-    NSString *errorString = [NSString stringWithFormat:@"Error code %i", [parseError code]];
+    NSString *errorString = [NSString stringWithFormat:@"Error code %li", (long)[parseError code]];
     NSLog(@"Error parsing XML: %@", errorString);
     
     
@@ -644,7 +633,7 @@ NSString *MyAdBanerIDiPad   = @"a14fd855405a384";
 {
     NSMutableArray *res = [[NSMutableArray alloc]init];
     //    for (NSString *lineObl in _poslouchane) {
-    for (int y=[_poslouchane count]-1; y>=0;y--) {
+    for (long y=[_poslouchane count]-1; y>=0;y--) {
         NSString *lineObl = [_poslouchane objectAtIndex:y];
         for (int i=0; i<[_radioAll count];i=i+2){
             NSMutableDictionary* line = [_radioAll objectAtIndex:i];
@@ -1147,6 +1136,104 @@ NSString *MyAdBanerIDiPad   = @"a14fd855405a384";
         }
     }
     return __artIMG;
+}
+
+- (void)saveContext
+{
+    NSError *error = nil;
+    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
+    if (managedObjectContext != nil) {
+        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+    }
+}
+
+#pragma mark - Core Data stack
+
+// Returns the managed object context for the application.
+// If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
+- (NSManagedObjectContext *)managedObjectContext
+{
+    if (_managedObjectContext != nil) {
+        return _managedObjectContext;
+    }
+    
+    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    if (coordinator != nil) {
+        _managedObjectContext = [[NSManagedObjectContext alloc] init];
+        [_managedObjectContext setPersistentStoreCoordinator:coordinator];
+    }
+    return _managedObjectContext;
+}
+
+// Returns the managed object model for the application.
+// If the model doesn't already exist, it is created from the application's model.
+- (NSManagedObjectModel *)managedObjectModel
+{
+    if (_managedObjectModel != nil) {
+        return _managedObjectModel;
+    }
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"iRadio" withExtension:@"momd"];
+    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    return _managedObjectModel;
+}
+
+// Returns the persistent store coordinator for the application.
+// If the coordinator doesn't already exist, it is created and the application's store added to it.
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator
+{
+    if (_persistentStoreCoordinator != nil) {
+        return _persistentStoreCoordinator;
+    }
+    
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"iRadio.sqlite"];
+    
+    NSError *error = nil;
+    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:@{NSMigratePersistentStoresAutomaticallyOption:@YES, NSInferMappingModelAutomaticallyOption:@YES} error:&error]) {
+        /*
+         Replace this implementation with code to handle the error appropriately.
+         
+         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+         
+         Typical reasons for an error here include:
+         * The persistent store is not accessible;
+         * The schema for the persistent store is incompatible with current managed object model.
+         Check the error message to determine what the actual problem was.
+         
+         
+         If the persistent store is not accessible, there is typically something wrong with the file path. Often, a file URL is pointing into the application's resources directory instead of a writeable directory.
+         
+         If you encounter schema incompatibility errors during development, you can reduce their frequency by:
+         * Simply deleting the existing store:
+         */
+        
+        [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
+        
+        /*
+         * Performing automatic lightweight migration by passing the following dictionary as the options parameter:
+         @{NSMigratePersistentStoresAutomaticallyOption:@YES, NSInferMappingModelAutomaticallyOption:@YES}
+         
+         Lightweight migration will only work for a limited set of schema changes; consult "Core Data Model Versioning and Data Migration Programming Guide" for details.
+         
+         */
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    
+    return _persistentStoreCoordinator;
+}
+
+#pragma mark - Application's Documents directory
+
+// Returns the URL to the application's Documents directory.
+- (NSURL *)applicationDocumentsDirectory
+{
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
 @end

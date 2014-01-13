@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F5B353501882889D0011ADD7 /* comCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B3534D1882889D0011ADD7 /* comCategoryViewController.m */; };
+		F5B353511882889D0011ADD7 /* comDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B3534F1882889D0011ADD7 /* comDetailViewController.m */; };
+		F5B35355188289410011ADD7 /* iRadio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5B35353188289410011ADD7 /* iRadio.xcdatamodeld */; };
+		F5B35358188318180011ADD7 /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B35357188318180011ADD7 /* Favorite.m */; };
+		F5B3535B188318190011ADD7 /* Categorie.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B3535A188318190011ADD7 /* Categorie.m */; };
+		F5B3535E188318190011ADD7 /* Radio.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B3535D188318190011ADD7 /* Radio.m */; };
+		F5B35361188318190011ADD7 /* Listened.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B35360188318190011ADD7 /* Listened.m */; };
+		F5B35364188318190011ADD7 /* Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B35363188318190011ADD7 /* Stream.m */; };
 		F5F739F9188093F2009DD284 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F739F8188093F2009DD284 /* Foundation.framework */; };
 		F5F739FB188093F2009DD284 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F739FA188093F2009DD284 /* CoreGraphics.framework */; };
 		F5F739FD188093F2009DD284 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F739FC188093F2009DD284 /* UIKit.framework */; };
@@ -46,6 +54,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F5B3534C1882889D0011ADD7 /* comCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comCategoryViewController.h; sourceTree = "<group>"; };
+		F5B3534D1882889D0011ADD7 /* comCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comCategoryViewController.m; sourceTree = "<group>"; };
+		F5B3534E1882889D0011ADD7 /* comDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comDetailViewController.h; sourceTree = "<group>"; };
+		F5B3534F1882889D0011ADD7 /* comDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comDetailViewController.m; sourceTree = "<group>"; };
+		F5B35354188289410011ADD7 /* iRadio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iRadio.xcdatamodel; sourceTree = "<group>"; };
+		F5B35356188318180011ADD7 /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Favorite.h; path = DataModel/Favorite.h; sourceTree = "<group>"; };
+		F5B35357188318180011ADD7 /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Favorite.m; path = DataModel/Favorite.m; sourceTree = "<group>"; };
+		F5B35359188318190011ADD7 /* Categorie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Categorie.h; path = DataModel/Categorie.h; sourceTree = "<group>"; };
+		F5B3535A188318190011ADD7 /* Categorie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Categorie.m; path = DataModel/Categorie.m; sourceTree = "<group>"; };
+		F5B3535C188318190011ADD7 /* Radio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Radio.h; path = DataModel/Radio.h; sourceTree = "<group>"; };
+		F5B3535D188318190011ADD7 /* Radio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Radio.m; path = DataModel/Radio.m; sourceTree = "<group>"; };
+		F5B3535F188318190011ADD7 /* Listened.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Listened.h; path = DataModel/Listened.h; sourceTree = "<group>"; };
+		F5B35360188318190011ADD7 /* Listened.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Listened.m; path = DataModel/Listened.m; sourceTree = "<group>"; };
+		F5B35362188318190011ADD7 /* Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stream.h; path = DataModel/Stream.h; sourceTree = "<group>"; };
+		F5B35363188318190011ADD7 /* Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Stream.m; path = DataModel/Stream.m; sourceTree = "<group>"; };
 		F5F739F5188093F2009DD284 /* iRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5F739F8188093F2009DD284 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F5F739FA188093F2009DD284 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -141,6 +164,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F5B353521882891D0011ADD7 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				F5B35353188289410011ADD7 /* iRadio.xcdatamodeld */,
+				F5B35362188318190011ADD7 /* Stream.h */,
+				F5B35363188318190011ADD7 /* Stream.m */,
+				F5B3535F188318190011ADD7 /* Listened.h */,
+				F5B35360188318190011ADD7 /* Listened.m */,
+				F5B3535C188318190011ADD7 /* Radio.h */,
+				F5B3535D188318190011ADD7 /* Radio.m */,
+				F5B35359188318190011ADD7 /* Categorie.h */,
+				F5B3535A188318190011ADD7 /* Categorie.m */,
+				F5B35356188318180011ADD7 /* Favorite.h */,
+				F5B35357188318180011ADD7 /* Favorite.m */,
+			);
+			name = DataModel;
+			sourceTree = "<group>";
+		};
 		F5F739EC188093F2009DD284 = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +230,7 @@
 		F5F739FE188093F2009DD284 /* iRadio */ = {
 			isa = PBXGroup;
 			children = (
+				F5B353521882891D0011ADD7 /* DataModel */,
 				F5F73A30188094D8009DD284 /* AdMob */,
 				F5F73A3D188094D9009DD284 /* Classes */,
 				F5F73A4E188094D9009DD284 /* Common */,
@@ -234,6 +276,10 @@
 		F5F73A3D188094D9009DD284 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F5B3534C1882889D0011ADD7 /* comCategoryViewController.h */,
+				F5B3534D1882889D0011ADD7 /* comCategoryViewController.m */,
+				F5B3534E1882889D0011ADD7 /* comDetailViewController.h */,
+				F5B3534F1882889D0011ADD7 /* comDetailViewController.m */,
 				F5F73A3E188094D9009DD284 /* comContactViewController.h */,
 				F5F73A3F188094D9009DD284 /* comContactViewController.m */,
 				F5F73A40188094D9009DD284 /* comFavoriteViewController.h */,
@@ -354,14 +400,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5F73A60188094D9009DD284 /* comListenViewController.m in Sources */,
+				F5B353511882889D0011ADD7 /* comDetailViewController.m in Sources */,
 				F5F73A5D188094D9009DD284 /* comFavoriteViewController.m in Sources */,
+				F5B3535E188318190011ADD7 /* Radio.m in Sources */,
 				F5F73A5E188094D9009DD284 /* comInfoViewController.m in Sources */,
 				F5F73A5C188094D9009DD284 /* comContactViewController.m in Sources */,
+				F5B35361188318190011ADD7 /* Listened.m in Sources */,
+				F5B35358188318180011ADD7 /* Favorite.m in Sources */,
 				F5F73A64188094D9009DD284 /* AsyncImageView.m in Sources */,
 				F5F73A62188094D9009DD284 /* comRadiaListViewController.m in Sources */,
 				F5F73A09188093F2009DD284 /* comAppDelegate.m in Sources */,
 				F5F73A63188094D9009DD284 /* comWebViewController.m in Sources */,
 				F5F73A05188093F2009DD284 /* main.m in Sources */,
+				F5B3535B188318190011ADD7 /* Categorie.m in Sources */,
+				F5B353501882889D0011ADD7 /* comCategoryViewController.m in Sources */,
+				F5B35364188318190011ADD7 /* Stream.m in Sources */,
+				F5B35355188289410011ADD7 /* iRadio.xcdatamodeld in Sources */,
 				F5F73A65188094D9009DD284 /* Reachability.m in Sources */,
 				F5F73A67188094D9009DD284 /* comPlayer.m in Sources */,
 				F5F73A61188094D9009DD284 /* comPlayerViewController.m in Sources */,
@@ -511,8 +565,22 @@
 				F5F73A2C188093F3009DD284 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F5B35353188289410011ADD7 /* iRadio.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F5B35354188289410011ADD7 /* iRadio.xcdatamodel */,
+			);
+			currentVersion = F5B35354188289410011ADD7 /* iRadio.xcdatamodel */;
+			path = iRadio.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F5F739ED188093F2009DD284 /* Project object */;
 }
