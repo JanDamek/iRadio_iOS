@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Categorie" representedClassName="Categorie" syncable="YES">
-        <attribute name="name" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="category_id" optional="YES" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="user_def" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
         <relationship name="radios_rel" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Radio" inverseName="categorie_rel" inverseEntity="Radio" syncable="YES"/>
     </entity>
@@ -15,24 +16,39 @@
         <relationship name="radios_rel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Radio" inverseName="listened_rel" inverseEntity="Radio" syncable="YES"/>
     </entity>
     <entity name="Radio" representedClassName="Radio" syncable="YES">
+        <attribute name="artwork" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="descript" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="interpret" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="logo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="logo_ipad" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="program" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="radio_id" optional="YES" attributeType="Integer 32" defaultValueString="0" spotlightIndexingEnabled="YES" syncable="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="updated" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="user_def" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
         <relationship name="categorie_rel" toMany="YES" deletionRule="Nullify" destinationEntity="Categorie" inverseName="radios_rel" inverseEntity="Categorie" syncable="YES"/>
         <relationship name="favorited_rel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Favorite" inverseName="radios_rel" inverseEntity="Favorite" syncable="YES"/>
         <relationship name="listened_rel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Listened" inverseName="radios_rel" inverseEntity="Listened" syncable="YES"/>
         <relationship name="stream_rel" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Stream" inverseName="radio_rel" inverseEntity="Stream" syncable="YES"/>
     </entity>
     <entity name="Stream" representedClassName="Stream" syncable="YES">
+        <attribute name="bitrate" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="def3g" optional="YES" attributeType="Boolean" indexed="YES" syncable="YES"/>
+        <attribute name="defWifi" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stream_id" optional="YES" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updated" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user_def" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
         <relationship name="radio_rel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Radio" inverseName="stream_rel" inverseEntity="Radio" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Categorie" positionX="126" positionY="-153" width="128" height="103"/>
-        <element name="Radio" positionX="133" positionY="36" width="128" height="148"/>
-        <element name="Stream" positionX="117" positionY="257" width="128" height="103"/>
+        <element name="Categorie" positionX="126" positionY="-153" width="128" height="118"/>
+        <element name="Radio" positionX="133" positionY="36" width="128" height="178"/>
+        <element name="Stream" positionX="117" positionY="257" width="128" height="118"/>
         <element name="Favorite" positionX="-144" positionY="-27" width="128" height="73"/>
         <element name="Listened" positionX="-146" positionY="162" width="128" height="73"/>
     </elements>

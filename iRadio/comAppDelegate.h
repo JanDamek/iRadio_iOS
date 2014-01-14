@@ -8,117 +8,27 @@
 
 #import <UIKit/UIKit.h>
 #import "comPlayer.h"
-#import "comWebViewController.h"
 #import "GADBannerView.h"
-#import "comListenViewController.h"
-#import "comFavoriteViewController.h"
-#import "comPlayerViewController.h"
+#import "comData.h"
 
-@protocol UpdateABRadio
--(void)updateTableView;
--(void)updateActualSong;
-@end
+@interface comAppDelegate : UIResponder <UIApplicationDelegate, comPlayerDelegate>
 
-@interface comAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate, NSXMLParserDelegate, comPlayerDelegate, AVAudioPlayerDelegate>{
-    
-    NSString *_currentElement;
-    NSMutableString *_ElementValue;
-    BOOL _errorParsing;
-    NSXMLParser *_rssParser;
-    
-    NSMutableArray *_category;
-    NSMutableDictionary *_itemCat;    
-    BOOL _cat;
+@property (nonatomic, strong, getter = getData) comData* data;
 
-    NSMutableArray *_radio;
-    NSMutableArray *_radioAll;
-    NSMutableDictionary *_itemRadio;
-    BOOL _rad;
-
-    NSMutableArray *_stream;
-    NSMutableDictionary *_itemStream;
-    BOOL _stre;
-    
-    comPlayer *_playerClass;
-    
-    NSMutableDictionary *_imageList;    
-
-    NSMutableDictionary *_dataPlayer;
-    NSMutableArray *_streamPlayer;
-
-    UITextView *_description;
-    UIImageView* _artImageView;
-    NSString* _meta;
-    NSString* __weak _artSONG;
-    NSString* __weak _artARTIST;
-    NSString* __artIMG;
-    NSMutableDictionary* _artImages;
-    UIActivityIndicatorView *_activity;
-    UILabel * _sleepLabel;
-    
-    NSMutableArray* _oblibene;
-    NSMutableArray* _poslouchane; 
-    
-    BOOL _isInSleep;
-    int _sleepTimeLeft;
-    NSTimer *_sleepTimer;
-    UIBackgroundTaskIdentifier _backgroundTask; 
-    
-    NSUserDefaults *_defaults;   
-    
-    UIActivityIndicatorView *_ani;
-    
-    BOOL _isInLoadXML;
-    
-    unsigned int radioList;
-}
-
-@property (readwrite) unsigned int radioList;
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) UITextView *description;
-@property (readonly, getter = getRate) float rate;
-@property (readonly) NSMutableDictionary *imageList;
-@property (strong, nonatomic) NSMutableDictionary *dataPlayer;
-@property (strong, nonatomic) NSMutableArray *streamPlayer;
-@property (weak, readonly) NSString* artSONG;
-@property (weak, readonly) NSString* artARTIST;
-@property (strong, nonatomic) UIImageView *artImageView;
-@property (strong, nonatomic) UIActivityIndicatorView *activity;
-@property (readonly) NSMutableArray *oblibene;
-@property (readonly) NSMutableArray *poslouchane;
+
 @property (readwrite) BOOL isInSleep;
 @property (readwrite) int sleepTimeLeft;
-@property (strong, nonatomic) UILabel *sleepLabel;
-@property (strong, nonatomic) NSString *requestURL;
-@property (strong, nonatomic) UITableView *table;
-@property BOOL clicked;
-@property (nonatomic, strong) NSMutableArray *categoryAktual;
 
-+ (GADBannerView*) getBanner;
-//- (NSMutableArray*) getCategory;
+@property (nonatomic, weak) NSString *artArtist;
+@property (nonatomic, weak) NSString *artSong;
+
 - (void)parseXMLFileAtURL:(NSString *)URL;
-
-void MyImgLoaded (UIImage* image, NSString* path);
 
 - (void)playStart;
 - (void)playStop;
 
-- (BOOL)isInOblibene;
-- (void)togleInOblibene;
 - (void)sleepTouch;
-
-- (NSMutableArray*) getOblibeneRadia;
-- (NSMutableArray*) getPoslouchaneRadia;
-
-- (NSString*) prg;
-- (NSString*) meta;
-
-//- (void) showPlayer;
-
-//- (BOOL) isPlayerInPopover;
-
-- (void) cancelSearch;
-- (void) setSearch:(NSString*)search;
 
 - (NSString*) getArtImage:(UIImageView*)image;
 
@@ -130,6 +40,5 @@ void MyImgLoaded (UIImage* image, NSString* path);
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
-
 
 @end

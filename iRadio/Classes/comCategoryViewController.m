@@ -11,6 +11,7 @@
 #import "Radio.h"
 #import "comDetailViewController.h"
 #import "comAppDelegate.h"
+#import "comBannerView.h"
 
 @interface comCategoryViewController ()
 
@@ -44,6 +45,8 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (comDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    
+    self.tableView.tableFooterView = [comBannerView getBannerView:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,7 +64,7 @@
     // If appropriate, configure the new managed object.
     // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
     newManagedObject.timeStamp = [NSDate date];
-    newManagedObject.name = @"New entry";
+    newManagedObject.title = @"New entry";
     
     // Save the context.
     NSError *error = nil;
@@ -96,7 +99,8 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    Categorie *c = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    return [c.user_def boolValue];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -155,7 +159,7 @@
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:NO];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
     NSArray *sortDescriptors = @[sortDescriptor];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
@@ -241,7 +245,7 @@
 {
     Categorie *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    cell.textLabel.text = object.name;
+    cell.textLabel.text = object.title;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Počet rádii: %lu", (unsigned long)[object.radios_rel count]];
 }
 

@@ -10,11 +10,18 @@
 		F5B353501882889D0011ADD7 /* comCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B3534D1882889D0011ADD7 /* comCategoryViewController.m */; };
 		F5B353511882889D0011ADD7 /* comDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B3534F1882889D0011ADD7 /* comDetailViewController.m */; };
 		F5B35355188289410011ADD7 /* iRadio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5B35353188289410011ADD7 /* iRadio.xcdatamodeld */; };
-		F5B35358188318180011ADD7 /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B35357188318180011ADD7 /* Favorite.m */; };
-		F5B3535B188318190011ADD7 /* Categorie.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B3535A188318190011ADD7 /* Categorie.m */; };
-		F5B3535E188318190011ADD7 /* Radio.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B3535D188318190011ADD7 /* Radio.m */; };
-		F5B35361188318190011ADD7 /* Listened.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B35360188318190011ADD7 /* Listened.m */; };
-		F5B35364188318190011ADD7 /* Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B35363188318190011ADD7 /* Stream.m */; };
+		F5B35367188487140011ADD7 /* comData.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B35366188487140011ADD7 /* comData.m */; };
+		F5B3536A188492940011ADD7 /* comXMLParseAbRadio.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B35369188492940011ADD7 /* comXMLParseAbRadio.m */; };
+		F5B3536D18849EFC0011ADD7 /* comBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B3536C18849EFC0011ADD7 /* comBannerView.m */; };
+		F5B3537818849FE90011ADD7 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B3537718849FE90011ADD7 /* libGoogleAdMobAds.a */; };
+		F5B3537A1884A1320011ADD7 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B353791884A1320011ADD7 /* StoreKit.framework */; };
+		F5B3538A188568F00011ADD7 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B35389188568F00011ADD7 /* XMLReader.m */; };
+		F5B35396188576680011ADD7 /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B35395188576680011ADD7 /* Favorite.m */; };
+		F5B35399188576690011ADD7 /* Listened.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B35398188576690011ADD7 /* Listened.m */; };
+		F5B3539C188576690011ADD7 /* Categorie.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B3539B188576690011ADD7 /* Categorie.m */; };
+		F5B3539F188576690011ADD7 /* Radio.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B3539E188576690011ADD7 /* Radio.m */; };
+		F5B353A2188576690011ADD7 /* Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B353A1188576690011ADD7 /* Stream.m */; };
+		F5B353A518858FF10011ADD7 /* comDamek.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B353A418858FF10011ADD7 /* comDamek.m */; };
 		F5F739F9188093F2009DD284 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F739F8188093F2009DD284 /* Foundation.framework */; };
 		F5F739FB188093F2009DD284 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F739FA188093F2009DD284 /* CoreGraphics.framework */; };
 		F5F739FD188093F2009DD284 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F739FC188093F2009DD284 /* UIKit.framework */; };
@@ -22,14 +29,6 @@
 		F5F73A05188093F2009DD284 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F73A04188093F2009DD284 /* main.m */; };
 		F5F73A09188093F2009DD284 /* comAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F73A08188093F2009DD284 /* comAppDelegate.m */; };
 		F5F73A14188093F2009DD284 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5F73A13188093F2009DD284 /* Images.xcassets */; };
-		F5F73A5B188094D9009DD284 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F73A3C188094D9009DD284 /* libGoogleAdMobAds.a */; };
-		F5F73A5C188094D9009DD284 /* comContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F73A3F188094D9009DD284 /* comContactViewController.m */; };
-		F5F73A5D188094D9009DD284 /* comFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F73A41188094D9009DD284 /* comFavoriteViewController.m */; };
-		F5F73A5E188094D9009DD284 /* comInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F73A43188094D9009DD284 /* comInfoViewController.m */; };
-		F5F73A60188094D9009DD284 /* comListenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F73A47188094D9009DD284 /* comListenViewController.m */; };
-		F5F73A61188094D9009DD284 /* comPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F73A49188094D9009DD284 /* comPlayerViewController.m */; };
-		F5F73A62188094D9009DD284 /* comRadiaListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F73A4B188094D9009DD284 /* comRadiaListViewController.m */; };
-		F5F73A63188094D9009DD284 /* comWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F73A4D188094D9009DD284 /* comWebViewController.m */; };
 		F5F73A64188094D9009DD284 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F73A50188094D9009DD284 /* AsyncImageView.m */; };
 		F5F73A65188094D9009DD284 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F73A52188094D9009DD284 /* Reachability.m */; };
 		F5F73A67188094D9009DD284 /* comPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F73A57188094D9009DD284 /* comPlayer.m */; };
@@ -45,11 +44,9 @@
 		F5F73A811880958B009DD284 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F73A711880958B009DD284 /* libsqlite3.0.dylib */; };
 		F5F73A821880958B009DD284 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F73A721880958B009DD284 /* libsqlite3.dylib */; };
 		F5F73A831880958B009DD284 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F73A731880958B009DD284 /* libz.dylib */; };
-		F5F73A841880958B009DD284 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F73A741880958B009DD284 /* MapKit.framework */; };
 		F5F73A851880958B009DD284 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F73A751880958B009DD284 /* MediaPlayer.framework */; };
 		F5F73A861880958B009DD284 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F73A761880958B009DD284 /* MessageUI.framework */; };
 		F5F73A871880958B009DD284 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F73A771880958B009DD284 /* QuartzCore.framework */; };
-		F5F73A881880958B009DD284 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F73A781880958B009DD284 /* StoreKit.framework */; };
 		F5F73A891880958B009DD284 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F73A791880958B009DD284 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,16 +56,37 @@
 		F5B3534E1882889D0011ADD7 /* comDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comDetailViewController.h; sourceTree = "<group>"; };
 		F5B3534F1882889D0011ADD7 /* comDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comDetailViewController.m; sourceTree = "<group>"; };
 		F5B35354188289410011ADD7 /* iRadio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iRadio.xcdatamodel; sourceTree = "<group>"; };
-		F5B35356188318180011ADD7 /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Favorite.h; path = DataModel/Favorite.h; sourceTree = "<group>"; };
-		F5B35357188318180011ADD7 /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Favorite.m; path = DataModel/Favorite.m; sourceTree = "<group>"; };
-		F5B35359188318190011ADD7 /* Categorie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Categorie.h; path = DataModel/Categorie.h; sourceTree = "<group>"; };
-		F5B3535A188318190011ADD7 /* Categorie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Categorie.m; path = DataModel/Categorie.m; sourceTree = "<group>"; };
-		F5B3535C188318190011ADD7 /* Radio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Radio.h; path = DataModel/Radio.h; sourceTree = "<group>"; };
-		F5B3535D188318190011ADD7 /* Radio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Radio.m; path = DataModel/Radio.m; sourceTree = "<group>"; };
-		F5B3535F188318190011ADD7 /* Listened.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Listened.h; path = DataModel/Listened.h; sourceTree = "<group>"; };
-		F5B35360188318190011ADD7 /* Listened.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Listened.m; path = DataModel/Listened.m; sourceTree = "<group>"; };
-		F5B35362188318190011ADD7 /* Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stream.h; path = DataModel/Stream.h; sourceTree = "<group>"; };
-		F5B35363188318190011ADD7 /* Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Stream.m; path = DataModel/Stream.m; sourceTree = "<group>"; };
+		F5B35365188487140011ADD7 /* comData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = comData.h; path = DataModel/comData.h; sourceTree = "<group>"; };
+		F5B35366188487140011ADD7 /* comData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = comData.m; path = DataModel/comData.m; sourceTree = "<group>"; };
+		F5B35368188492940011ADD7 /* comXMLParseAbRadio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = comXMLParseAbRadio.h; path = DataModel/comXMLParseAbRadio.h; sourceTree = "<group>"; };
+		F5B35369188492940011ADD7 /* comXMLParseAbRadio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = comXMLParseAbRadio.m; path = DataModel/comXMLParseAbRadio.m; sourceTree = "<group>"; };
+		F5B3536B18849EFC0011ADD7 /* comBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comBannerView.h; sourceTree = "<group>"; };
+		F5B3536C18849EFC0011ADD7 /* comBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comBannerView.m; sourceTree = "<group>"; };
+		F5B3536E18849FCA0011ADD7 /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
+		F5B3536F18849FCA0011ADD7 /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
+		F5B3537018849FCA0011ADD7 /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
+		F5B3537118849FCA0011ADD7 /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerView.h; sourceTree = "<group>"; };
+		F5B3537218849FCA0011ADD7 /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerViewDelegate.h; sourceTree = "<group>"; };
+		F5B3537318849FCA0011ADD7 /* GADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitial.h; sourceTree = "<group>"; };
+		F5B3537418849FCA0011ADD7 /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitialDelegate.h; sourceTree = "<group>"; };
+		F5B3537518849FCA0011ADD7 /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequest.h; sourceTree = "<group>"; };
+		F5B3537618849FCA0011ADD7 /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
+		F5B3537718849FE90011ADD7 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
+		F5B353791884A1320011ADD7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		F5B35388188568F00011ADD7 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
+		F5B35389188568F00011ADD7 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
+		F5B35394188576680011ADD7 /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Favorite.h; path = DataModel/Favorite.h; sourceTree = "<group>"; };
+		F5B35395188576680011ADD7 /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Favorite.m; path = DataModel/Favorite.m; sourceTree = "<group>"; };
+		F5B35397188576690011ADD7 /* Listened.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Listened.h; path = DataModel/Listened.h; sourceTree = "<group>"; };
+		F5B35398188576690011ADD7 /* Listened.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Listened.m; path = DataModel/Listened.m; sourceTree = "<group>"; };
+		F5B3539A188576690011ADD7 /* Categorie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Categorie.h; path = DataModel/Categorie.h; sourceTree = "<group>"; };
+		F5B3539B188576690011ADD7 /* Categorie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Categorie.m; path = DataModel/Categorie.m; sourceTree = "<group>"; };
+		F5B3539D188576690011ADD7 /* Radio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Radio.h; path = DataModel/Radio.h; sourceTree = "<group>"; };
+		F5B3539E188576690011ADD7 /* Radio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Radio.m; path = DataModel/Radio.m; sourceTree = "<group>"; };
+		F5B353A0188576690011ADD7 /* Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stream.h; path = DataModel/Stream.h; sourceTree = "<group>"; };
+		F5B353A1188576690011ADD7 /* Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Stream.m; path = DataModel/Stream.m; sourceTree = "<group>"; };
+		F5B353A318858FF10011ADD7 /* comDamek.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comDamek.h; sourceTree = "<group>"; };
+		F5B353A418858FF10011ADD7 /* comDamek.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comDamek.m; sourceTree = "<group>"; };
 		F5F739F5188093F2009DD284 /* iRadioHD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRadioHD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5F739F8188093F2009DD284 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F5F739FA188093F2009DD284 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -81,32 +99,6 @@
 		F5F73A08188093F2009DD284 /* comAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = comAppDelegate.m; sourceTree = "<group>"; };
 		F5F73A13188093F2009DD284 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F5F73A1A188093F3009DD284 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		F5F73A31188094D8009DD284 /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
-		F5F73A32188094D9009DD284 /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
-		F5F73A33188094D9009DD284 /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
-		F5F73A34188094D9009DD284 /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerView.h; sourceTree = "<group>"; };
-		F5F73A35188094D9009DD284 /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerViewDelegate.h; sourceTree = "<group>"; };
-		F5F73A36188094D9009DD284 /* GADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitial.h; sourceTree = "<group>"; };
-		F5F73A37188094D9009DD284 /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitialDelegate.h; sourceTree = "<group>"; };
-		F5F73A38188094D9009DD284 /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequest.h; sourceTree = "<group>"; };
-		F5F73A39188094D9009DD284 /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
-		F5F73A3A188094D9009DD284 /* GADSearchBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADSearchBannerView.h; sourceTree = "<group>"; };
-		F5F73A3B188094D9009DD284 /* GADSearchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADSearchRequest.h; sourceTree = "<group>"; };
-		F5F73A3C188094D9009DD284 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAdMobAds.a; path = iRadio/AdMob/libGoogleAdMobAds.a; sourceTree = "<group>"; };
-		F5F73A3E188094D9009DD284 /* comContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comContactViewController.h; sourceTree = "<group>"; };
-		F5F73A3F188094D9009DD284 /* comContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comContactViewController.m; sourceTree = "<group>"; };
-		F5F73A40188094D9009DD284 /* comFavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comFavoriteViewController.h; sourceTree = "<group>"; };
-		F5F73A41188094D9009DD284 /* comFavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comFavoriteViewController.m; sourceTree = "<group>"; };
-		F5F73A42188094D9009DD284 /* comInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comInfoViewController.h; sourceTree = "<group>"; };
-		F5F73A43188094D9009DD284 /* comInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comInfoViewController.m; sourceTree = "<group>"; };
-		F5F73A46188094D9009DD284 /* comListenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comListenViewController.h; sourceTree = "<group>"; };
-		F5F73A47188094D9009DD284 /* comListenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comListenViewController.m; sourceTree = "<group>"; };
-		F5F73A48188094D9009DD284 /* comPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comPlayerViewController.h; sourceTree = "<group>"; };
-		F5F73A49188094D9009DD284 /* comPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comPlayerViewController.m; sourceTree = "<group>"; };
-		F5F73A4A188094D9009DD284 /* comRadiaListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comRadiaListViewController.h; sourceTree = "<group>"; };
-		F5F73A4B188094D9009DD284 /* comRadiaListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comRadiaListViewController.m; sourceTree = "<group>"; };
-		F5F73A4C188094D9009DD284 /* comWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comWebViewController.h; sourceTree = "<group>"; };
-		F5F73A4D188094D9009DD284 /* comWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comWebViewController.m; sourceTree = "<group>"; };
 		F5F73A4F188094D9009DD284 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		F5F73A50188094D9009DD284 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		F5F73A51188094D9009DD284 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -125,11 +117,9 @@
 		F5F73A711880958B009DD284 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		F5F73A721880958B009DD284 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		F5F73A731880958B009DD284 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		F5F73A741880958B009DD284 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F5F73A751880958B009DD284 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		F5F73A761880958B009DD284 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		F5F73A771880958B009DD284 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		F5F73A781880958B009DD284 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		F5F73A791880958B009DD284 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -138,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5B3537A1884A1320011ADD7 /* StoreKit.framework in Frameworks */,
 				F5F73A7A1880958B009DD284 /* AdSupport.framework in Frameworks */,
 				F5F73A7B1880958B009DD284 /* AudioToolbox.framework in Frameworks */,
 				F5F73A7C1880958B009DD284 /* AVFoundation.framework in Frameworks */,
@@ -147,16 +138,14 @@
 				F5F73A801880958B009DD284 /* CoreFoundation.framework in Frameworks */,
 				F5F73A811880958B009DD284 /* libsqlite3.0.dylib in Frameworks */,
 				F5F73A821880958B009DD284 /* libsqlite3.dylib in Frameworks */,
+				F5B3537818849FE90011ADD7 /* libGoogleAdMobAds.a in Frameworks */,
 				F5F73A831880958B009DD284 /* libz.dylib in Frameworks */,
-				F5F73A841880958B009DD284 /* MapKit.framework in Frameworks */,
 				F5F73A851880958B009DD284 /* MediaPlayer.framework in Frameworks */,
 				F5F73A861880958B009DD284 /* MessageUI.framework in Frameworks */,
 				F5F73A871880958B009DD284 /* QuartzCore.framework in Frameworks */,
-				F5F73A881880958B009DD284 /* StoreKit.framework in Frameworks */,
 				F5F73A891880958B009DD284 /* SystemConfiguration.framework in Frameworks */,
 				F5F739FB188093F2009DD284 /* CoreGraphics.framework in Frameworks */,
 				F5F739FD188093F2009DD284 /* UIKit.framework in Frameworks */,
-				F5F73A5B188094D9009DD284 /* libGoogleAdMobAds.a in Frameworks */,
 				F5F739F9188093F2009DD284 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,24 +157,37 @@
 			isa = PBXGroup;
 			children = (
 				F5B35353188289410011ADD7 /* iRadio.xcdatamodeld */,
-				F5B35362188318190011ADD7 /* Stream.h */,
-				F5B35363188318190011ADD7 /* Stream.m */,
-				F5B3535F188318190011ADD7 /* Listened.h */,
-				F5B35360188318190011ADD7 /* Listened.m */,
-				F5B3535C188318190011ADD7 /* Radio.h */,
-				F5B3535D188318190011ADD7 /* Radio.m */,
-				F5B35359188318190011ADD7 /* Categorie.h */,
-				F5B3535A188318190011ADD7 /* Categorie.m */,
-				F5B35356188318180011ADD7 /* Favorite.h */,
-				F5B35357188318180011ADD7 /* Favorite.m */,
+				F5B353A0188576690011ADD7 /* Stream.h */,
+				F5B353A1188576690011ADD7 /* Stream.m */,
+				F5B3539D188576690011ADD7 /* Radio.h */,
+				F5B3539E188576690011ADD7 /* Radio.m */,
+				F5B3539A188576690011ADD7 /* Categorie.h */,
+				F5B3539B188576690011ADD7 /* Categorie.m */,
+				F5B35397188576690011ADD7 /* Listened.h */,
+				F5B35398188576690011ADD7 /* Listened.m */,
+				F5B35394188576680011ADD7 /* Favorite.h */,
+				F5B35395188576680011ADD7 /* Favorite.m */,
+				F5B35365188487140011ADD7 /* comData.h */,
+				F5B35366188487140011ADD7 /* comData.m */,
+				F5B35368188492940011ADD7 /* comXMLParseAbRadio.h */,
+				F5B35369188492940011ADD7 /* comXMLParseAbRadio.m */,
 			);
 			name = DataModel;
+			sourceTree = "<group>";
+		};
+		F5B35387188568F00011ADD7 /* XML */ = {
+			isa = PBXGroup;
+			children = (
+				F5B35388188568F00011ADD7 /* XMLReader.h */,
+				F5B35389188568F00011ADD7 /* XMLReader.m */,
+			);
+			path = XML;
 			sourceTree = "<group>";
 		};
 		F5F739EC188093F2009DD284 = {
 			isa = PBXGroup;
 			children = (
-				F5F739FE188093F2009DD284 /* iRadio */,
+				F5F739FE188093F2009DD284 /* iRadioHD */,
 				F5F739F7188093F2009DD284 /* Frameworks */,
 				F5F739F6188093F2009DD284 /* Products */,
 			);
@@ -202,6 +204,8 @@
 		F5F739F7188093F2009DD284 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F5B353791884A1320011ADD7 /* StoreKit.framework */,
+				F5B3537718849FE90011ADD7 /* libGoogleAdMobAds.a */,
 				F5F73A6A1880958B009DD284 /* AdSupport.framework */,
 				F5F73A6B1880958B009DD284 /* AudioToolbox.framework */,
 				F5F73A6C1880958B009DD284 /* AVFoundation.framework */,
@@ -212,13 +216,10 @@
 				F5F73A711880958B009DD284 /* libsqlite3.0.dylib */,
 				F5F73A721880958B009DD284 /* libsqlite3.dylib */,
 				F5F73A731880958B009DD284 /* libz.dylib */,
-				F5F73A741880958B009DD284 /* MapKit.framework */,
 				F5F73A751880958B009DD284 /* MediaPlayer.framework */,
 				F5F73A761880958B009DD284 /* MessageUI.framework */,
 				F5F73A771880958B009DD284 /* QuartzCore.framework */,
-				F5F73A781880958B009DD284 /* StoreKit.framework */,
 				F5F73A791880958B009DD284 /* SystemConfiguration.framework */,
-				F5F73A3C188094D9009DD284 /* libGoogleAdMobAds.a */,
 				F5F739F8188093F2009DD284 /* Foundation.framework */,
 				F5F739FA188093F2009DD284 /* CoreGraphics.framework */,
 				F5F739FC188093F2009DD284 /* UIKit.framework */,
@@ -227,7 +228,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F5F739FE188093F2009DD284 /* iRadio */ = {
+		F5F739FE188093F2009DD284 /* iRadioHD */ = {
 			isa = PBXGroup;
 			children = (
 				F5B353521882891D0011ADD7 /* DataModel */,
@@ -241,6 +242,7 @@
 				F5F73A13188093F2009DD284 /* Images.xcassets */,
 				F5F739FF188093F2009DD284 /* Supporting Files */,
 			);
+			name = iRadioHD;
 			path = iRadio;
 			sourceTree = "<group>";
 		};
@@ -258,17 +260,15 @@
 		F5F73A30188094D8009DD284 /* AdMob */ = {
 			isa = PBXGroup;
 			children = (
-				F5F73A31188094D8009DD284 /* GADAdMobExtras.h */,
-				F5F73A32188094D9009DD284 /* GADAdNetworkExtras.h */,
-				F5F73A33188094D9009DD284 /* GADAdSize.h */,
-				F5F73A34188094D9009DD284 /* GADBannerView.h */,
-				F5F73A35188094D9009DD284 /* GADBannerViewDelegate.h */,
-				F5F73A36188094D9009DD284 /* GADInterstitial.h */,
-				F5F73A37188094D9009DD284 /* GADInterstitialDelegate.h */,
-				F5F73A38188094D9009DD284 /* GADRequest.h */,
-				F5F73A39188094D9009DD284 /* GADRequestError.h */,
-				F5F73A3A188094D9009DD284 /* GADSearchBannerView.h */,
-				F5F73A3B188094D9009DD284 /* GADSearchRequest.h */,
+				F5B3536E18849FCA0011ADD7 /* GADAdMobExtras.h */,
+				F5B3536F18849FCA0011ADD7 /* GADAdNetworkExtras.h */,
+				F5B3537018849FCA0011ADD7 /* GADAdSize.h */,
+				F5B3537118849FCA0011ADD7 /* GADBannerView.h */,
+				F5B3537218849FCA0011ADD7 /* GADBannerViewDelegate.h */,
+				F5B3537318849FCA0011ADD7 /* GADInterstitial.h */,
+				F5B3537418849FCA0011ADD7 /* GADInterstitialDelegate.h */,
+				F5B3537518849FCA0011ADD7 /* GADRequest.h */,
+				F5B3537618849FCA0011ADD7 /* GADRequestError.h */,
 			);
 			path = AdMob;
 			sourceTree = "<group>";
@@ -280,20 +280,6 @@
 				F5B3534D1882889D0011ADD7 /* comCategoryViewController.m */,
 				F5B3534E1882889D0011ADD7 /* comDetailViewController.h */,
 				F5B3534F1882889D0011ADD7 /* comDetailViewController.m */,
-				F5F73A3E188094D9009DD284 /* comContactViewController.h */,
-				F5F73A3F188094D9009DD284 /* comContactViewController.m */,
-				F5F73A40188094D9009DD284 /* comFavoriteViewController.h */,
-				F5F73A41188094D9009DD284 /* comFavoriteViewController.m */,
-				F5F73A42188094D9009DD284 /* comInfoViewController.h */,
-				F5F73A43188094D9009DD284 /* comInfoViewController.m */,
-				F5F73A46188094D9009DD284 /* comListenViewController.h */,
-				F5F73A47188094D9009DD284 /* comListenViewController.m */,
-				F5F73A48188094D9009DD284 /* comPlayerViewController.h */,
-				F5F73A49188094D9009DD284 /* comPlayerViewController.m */,
-				F5F73A4A188094D9009DD284 /* comRadiaListViewController.h */,
-				F5F73A4B188094D9009DD284 /* comRadiaListViewController.m */,
-				F5F73A4C188094D9009DD284 /* comWebViewController.h */,
-				F5F73A4D188094D9009DD284 /* comWebViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -301,10 +287,15 @@
 		F5F73A4E188094D9009DD284 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F5B35387188568F00011ADD7 /* XML */,
+				F5B3536B18849EFC0011ADD7 /* comBannerView.h */,
+				F5B3536C18849EFC0011ADD7 /* comBannerView.m */,
 				F5F73A4F188094D9009DD284 /* AsyncImageView.h */,
 				F5F73A50188094D9009DD284 /* AsyncImageView.m */,
 				F5F73A51188094D9009DD284 /* Reachability.h */,
 				F5F73A52188094D9009DD284 /* Reachability.m */,
+				F5B353A318858FF10011ADD7 /* comDamek.h */,
+				F5B353A418858FF10011ADD7 /* comDamek.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -359,6 +350,14 @@
 				TargetAttributes = {
 					F5F739F4188093F2009DD284 = {
 						DevelopmentTeam = GR74KSG8M9;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+							com.apple.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -399,26 +398,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5F73A60188094D9009DD284 /* comListenViewController.m in Sources */,
 				F5B353511882889D0011ADD7 /* comDetailViewController.m in Sources */,
-				F5F73A5D188094D9009DD284 /* comFavoriteViewController.m in Sources */,
-				F5B3535E188318190011ADD7 /* Radio.m in Sources */,
-				F5F73A5E188094D9009DD284 /* comInfoViewController.m in Sources */,
-				F5F73A5C188094D9009DD284 /* comContactViewController.m in Sources */,
-				F5B35361188318190011ADD7 /* Listened.m in Sources */,
-				F5B35358188318180011ADD7 /* Favorite.m in Sources */,
+				F5B35399188576690011ADD7 /* Listened.m in Sources */,
+				F5B353A2188576690011ADD7 /* Stream.m in Sources */,
 				F5F73A64188094D9009DD284 /* AsyncImageView.m in Sources */,
-				F5F73A62188094D9009DD284 /* comRadiaListViewController.m in Sources */,
+				F5B35396188576680011ADD7 /* Favorite.m in Sources */,
 				F5F73A09188093F2009DD284 /* comAppDelegate.m in Sources */,
-				F5F73A63188094D9009DD284 /* comWebViewController.m in Sources */,
+				F5B3536A188492940011ADD7 /* comXMLParseAbRadio.m in Sources */,
 				F5F73A05188093F2009DD284 /* main.m in Sources */,
-				F5B3535B188318190011ADD7 /* Categorie.m in Sources */,
+				F5B353A518858FF10011ADD7 /* comDamek.m in Sources */,
+				F5B35367188487140011ADD7 /* comData.m in Sources */,
+				F5B3536D18849EFC0011ADD7 /* comBannerView.m in Sources */,
+				F5B3538A188568F00011ADD7 /* XMLReader.m in Sources */,
+				F5B3539C188576690011ADD7 /* Categorie.m in Sources */,
 				F5B353501882889D0011ADD7 /* comCategoryViewController.m in Sources */,
-				F5B35364188318190011ADD7 /* Stream.m in Sources */,
+				F5B3539F188576690011ADD7 /* Radio.m in Sources */,
 				F5B35355188289410011ADD7 /* iRadio.xcdatamodeld in Sources */,
 				F5F73A65188094D9009DD284 /* Reachability.m in Sources */,
 				F5F73A67188094D9009DD284 /* comPlayer.m in Sources */,
-				F5F73A61188094D9009DD284 /* comPlayerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,7 +519,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/jandamek/Desktop/iRadio/iRadio/AdMob,
+					/Users/jandamek/Desktop/iRadio,
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = iRadioHD;
 				WRAPPER_EXTENSION = app;
 			};
@@ -540,7 +539,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/jandamek/Desktop/iRadio/iRadio/AdMob,
+					/Users/jandamek/Desktop/iRadio,
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = iRadioHD;
 				WRAPPER_EXTENSION = app;
 			};
