@@ -54,51 +54,47 @@ static NSString *kURLXMLData       = @"http://m.abradio.cz/xml/export.xml";
                                         [NSURL URLWithString:URL]];
         [request setValue:agentString forHTTPHeaderField:@"User-Agent"];
         
-        NSOperationQueue *queue = [[NSOperationQueue alloc] init];
         _isInLoadXML = YES;
-        [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
-         {
-             
-             if (!error && [data length] > 0)
-             {
-                 NSDictionary *d = [XMLReader dictionaryForXMLData:data error:nil];
-                 NSArray *cat = [[d objectForKey:@"categories"] objectForKey:@"category"];
-                 for (NSDictionary *item in cat) {
-                     //loop for all items in d
-                     
-                     int catId = [comDamek getInt:[item objectForKey:@"category_id"]];
-                     NSString *title = [comDamek getString:[item objectForKey:@"title"]];
-                     
-                     Categorie *cat = [self.data findCategorieId:catId];
-                     cat.category_id = [NSNumber numberWithInt:catId];
-                     cat.user_def = NO;
-                     cat.title = title;
-                     
-                     //insert radios data
-                     NSArray *radios = [[item objectForKey:@"radios"] objectForKey:@"radio"];
-                     if ([radios isKindOfClass:[NSDictionary class]]){
-                         [self doRadio:(NSDictionary*)radios :cat];
-                     }else
-                         for (NSDictionary *r in radios) {
-                             [self doRadio:r :cat];
-                         }
-                     [self.data saveRadios];
-                 }
-                 [self.data saveCategories];
+        NSError *error = nil;
+        NSURLResponse *response = nil;
+        NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        if (!error && [data length] > 0)
+        {
+            NSDictionary *d = [XMLReader dictionaryForXMLData:data error:nil];
+            NSArray *cat = [[d objectForKey:@"categories"] objectForKey:@"category"];
+            for (NSDictionary *item in cat) {
+                //loop for all items in d
+                
+                int catId = [comDamek getInt:[item objectForKey:@"category_id"]];
+                NSString *title = [comDamek getString:[item objectForKey:@"title"]];
+                
+                Categorie *cat = [self.data findCategorieId:catId];
+                cat.category_id = [NSNumber numberWithInt:catId];
+                cat.user_def = [NSNumber numberWithBool:NO];
+                cat.title = title;
+                
+                //insert radios data
+                NSArray *radios = [[item objectForKey:@"radios"] objectForKey:@"radio"];
+                if ([radios isKindOfClass:[NSDictionary class]]){
+                    [self doRadio:(NSDictionary*)radios :cat];
+                }else
+                    for (NSDictionary *r in radios) {
+                        [self doRadio:r :cat];
+                    }
+            }
+            [self.data saveCategories];
+            [self.data saveRadios];            
+            [self.data saveStreams];
 
-                 self.data.categories.fetchRequest.predicate = nil;
-                 self.data.radios.fetchRequest.predicate = nil;
-                 self.data.streams.fetchRequest.predicate = nil;
-             }
-             else
-             {
-                 NSLog(@"error loading XML");
-             }
-             
-             _isInLoadXML = NO;
-         }];
+            self.data.categories.fetchRequest.predicate = nil;
+            self.data.radios.fetchRequest.predicate = nil;
+            self.data.streams.fetchRequest.predicate = nil;
+        }
+        else
+        {
+            NSLog(@"error loading XML");
+        }
     }
-    
 }
 
 -(void)doRadio:(NSDictionary*)r :(Categorie*)cat{
@@ -107,7 +103,7 @@ static NSString *kURLXMLData       = @"http://m.abradio.cz/xml/export.xml";
     Radio *rad = [self.data findRadioId:radId];
     
     rad.radio_id = [NSNumber numberWithInt:radId];
-    rad.user_def = NO;
+    rad.user_def = [NSNumber numberWithBool:NO];
     rad.descript = [comDamek getString:[r objectForKey:@"description"]];
     rad.name = [comDamek getString:[r objectForKey:@"name"]];
     //                         rad.updated =
@@ -127,7 +123,6 @@ static NSString *kURLXMLData       = @"http://m.abradio.cz/xml/export.xml";
         for (NSDictionary *s in streams) {
             [self doStream:s :rad];
         }
-    [self.data saveStreams];
 }
 
 -(void)doStream:(NSDictionary*)s :(Radio*)rad{
@@ -135,7 +130,7 @@ static NSString *kURLXMLData       = @"http://m.abradio.cz/xml/export.xml";
     
     Stream *str = [self.data findStreamId:strId];
     str.stream_id = [NSNumber numberWithInt:strId];
-    str.user_def = NO;
+    str.user_def = [NSNumber numberWithBool:NO];
     str.def3g   = [comDamek getNumber:[s objectForKey:@"def3g"]];
     str.defWifi = [comDamek getNumber:[s objectForKey:@"defWifi"]];
     str.bitrate = [comDamek getNumber:[s objectForKey:@"bitrate"]];

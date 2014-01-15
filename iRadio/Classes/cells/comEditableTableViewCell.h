@@ -1,18 +1,13 @@
 //
-//  Favorite.m
+//  comEditableTableViewCell.h
 //  iRadioHD
 //
 //  Created by Jan Damek on 15.01.14.
 //  Copyright (c) 2014 Jan Damek. All rights reserved.
 //
 
-#import "Favorite.h"
-#import "Radio.h"
+#import <UIKit/UIKit.h>
 
-
-@implementation Favorite
-
-@dynamic timeStamp;
-@dynamic radios_rel;
+@interface comEditableTableViewCell : UITableViewCell
 
 @end

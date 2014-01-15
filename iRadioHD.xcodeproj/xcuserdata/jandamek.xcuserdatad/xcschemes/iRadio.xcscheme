@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F5F739F4188093F2009DD284"
-               BuildableName = "iRadio.app"
+               BuildableName = "iRadioHD.app"
                BlueprintName = "iRadioHD"
                ReferencedContainer = "container:iRadioHD.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F5F739F4188093F2009DD284"
-            BuildableName = "iRadio.app"
+            BuildableName = "iRadioHD.app"
             BlueprintName = "iRadioHD"
             ReferencedContainer = "container:iRadioHD.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F5F739F4188093F2009DD284"
-            BuildableName = "iRadio.app"
+            BuildableName = "iRadioHD.app"
             BlueprintName = "iRadioHD"
             ReferencedContainer = "container:iRadioHD.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F5F739F4188093F2009DD284"
-            BuildableName = "iRadio.app"
+            BuildableName = "iRadioHD.app"
             BlueprintName = "iRadioHD"
             ReferencedContainer = "container:iRadioHD.xcodeproj">
          </BuildableReference>

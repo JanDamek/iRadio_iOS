@@ -8,9 +8,28 @@
 
 #import "comPlayer.h"
 
+@interface comPlayer (){
+    
+    BOOL _regTimedMeta;
+    AVPlayer *_player;
+    AVPlayerItem *_playerItem;
+}
+-(void)prepareBackgroundPlayAndSetDefaultSoundRoute;
+@end
+
+@interface comPlayer (Player)
+- (void)handleTimedMetadata:(AVMetadataItem*)timedMetadata;
+- (void)assetFailedToPrepareForPlayback:(NSError *)error;
+- (void)prepareToPlayAsset:(AVURLAsset *)asset withKeys:(NSArray *)requestedKeys;
+@end
+
+
 @implementation comPlayer
 
-@synthesize delegate, streamURL = _streamURL, player = _player;
+@synthesize delegate = _delegate;
+@synthesize streamURL = _streamURL;
+@synthesize player = _player;
+@synthesize lastMetaData = _lastMetaData;
 
 static void *comSecondViewControllerCurrentItemObservationContext = &comSecondViewControllerCurrentItemObservationContext;
 static void *comSecondViewControllerPlayerItemStatusObserverContext = &comSecondViewControllerPlayerItemStatusObserverContext;
@@ -59,8 +78,8 @@ NSString *kPlayableKey		= @"playable";
 -(id)init{
     if (self=[super init]){
         [self prepareBackgroundPlayAndSetDefaultSoundRoute];
-        
     }
+    
     _streamURL = @"";
     _playerItem = nil;
     _player = nil;
@@ -112,14 +131,6 @@ NSString *kPlayableKey		= @"playable";
         NSLog(@"audioSession active");    
 }
 
--(void)dealloc
-{
-    [self stop];
-    
-    _playerItem = nil;
-    
-}
-
 -(void)play
 {
     NSURL *newMovieURL = [NSURL URLWithString:_streamURL];
@@ -163,10 +174,10 @@ NSString *kPlayableKey		= @"playable";
 
 - (void)handleTimedMetadata:(AVMetadataItem*)timedMetadata
 {
-    NSString *metastr = [timedMetadata stringValue];
+    _lastMetaData = [timedMetadata stringValue];
     
     if ([self.delegate respondsToSelector:@selector(metaData:meta:)]) {
-        [self.delegate metaData:self meta:metastr];
+        [self.delegate metaData:self meta:_lastMetaData];
     }
 }
 

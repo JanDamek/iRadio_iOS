@@ -2,7 +2,7 @@
 //  Stream.m
 //  iRadioHD
 //
-//  Created by Jan Damek on 14.01.14.
+//  Created by Jan Damek on 15.01.14.
 //  Copyright (c) 2014 Jan Damek. All rights reserved.
 //
 
@@ -12,15 +12,15 @@
 
 @implementation Stream
 
-@dynamic def3g;
-@dynamic url;
-@dynamic timeStamp;
-@dynamic stream_id;
 @dynamic bitrate;
-@dynamic type;
-@dynamic name;
+@dynamic def3g;
 @dynamic defWifi;
+@dynamic name;
+@dynamic stream_id;
+@dynamic timeStamp;
+@dynamic type;
 @dynamic updated;
+@dynamic url;
 @dynamic user_def;
 @dynamic radio_rel;
 

@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
-@interface comCategoryViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface comCategoryViewController : UITableViewController <NSFetchedResultsControllerDelegate, UISearchBarDelegate>
 
 @end

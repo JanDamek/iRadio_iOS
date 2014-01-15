@@ -27,6 +27,11 @@
 
 @synthesize managedObjectContext = _managedObjectContext;
 
+static NSString *categoriesCache = @"categoriesCache";
+static NSString *radiosCache = @"radiosCache";
+static NSString *streamsCache = @"streamsCache";
+static NSString *listenedCache = @"listenedCache";
+static NSString *favoritesCache = @"fovoritesCache";
 
 -(NSManagedObjectContext *)getManagedObjectContext{
     if (!_managedObjectContext){
@@ -54,7 +59,7 @@
         
         // Edit the section name key path and cache name if appropriate.
         // nil for section name key path means "no sections".
-        NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
+        NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:categoriesCache];
         //aFetchedResultsController.delegate = self;
         _categories = aFetchedResultsController;
         
@@ -87,7 +92,7 @@
         
         // Edit the section name key path and cache name if appropriate.
         // nil for section name key path means "no sections".
-        NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
+        NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:radiosCache];
         //aFetchedResultsController.delegate = self;
         _radios = aFetchedResultsController;
         
@@ -121,7 +126,7 @@
         
         // Edit the section name key path and cache name if appropriate.
         // nil for section name key path means "no sections".
-        NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
+        NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:streamsCache];
         //aFetchedResultsController.delegate = self;
         _streams = aFetchedResultsController;
         
@@ -155,7 +160,7 @@
         
         // Edit the section name key path and cache name if appropriate.
         // nil for section name key path means "no sections".
-        NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
+        NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:listenedCache];
         //aFetchedResultsController.delegate = self;
         _listeneds = aFetchedResultsController;
         
@@ -189,7 +194,7 @@
         
         // Edit the section name key path and cache name if appropriate.
         // nil for section name key path means "no sections".
-        NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
+        NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:favoritesCache];
         //aFetchedResultsController.delegate = self;
         _favorites = aFetchedResultsController;
         
@@ -287,6 +292,7 @@
     NSEntityDescription *entity = [[self.categories fetchRequest] entity];
     Categorie *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
     newManagedObject.timeStamp = [NSDate date];
+    newManagedObject.user_def = [NSNumber numberWithBool:YES];
     return newManagedObject;
 }
 
@@ -295,6 +301,7 @@
     NSEntityDescription *entity = [[self.radios fetchRequest] entity];
     Radio *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
     newManagedObject.timeStamp = [NSDate date];
+    newManagedObject.user_def = [NSNumber numberWithBool:YES];
     return newManagedObject;
 }
 
@@ -303,8 +310,8 @@
     NSEntityDescription *entity = [[self.streams fetchRequest] entity];
     Stream *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
     newManagedObject.timeStamp = [NSDate date];
+    newManagedObject.user_def = [NSNumber numberWithBool:YES];
     return newManagedObject;
-    
 }
 
 -(Favorite *)newFavorie{
@@ -324,7 +331,9 @@
 }
 
 -(Categorie*)findCategorieId:(int)categorie_id{
+    [NSFetchedResultsController deleteCacheWithName:categoriesCache];
     [self.categories.fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"category_id==%i", categorie_id]];
+    [self.categories performFetch:nil];
     id <NSFetchedResultsSectionInfo> fc = self.categories.sections[0];
     for (Categorie *c in [fc objects]) {
         if ([c.category_id isEqualToNumber:[NSNumber numberWithInt:categorie_id]]){
@@ -336,8 +345,9 @@
 }
 
 -(Radio*)findRadioId:(int)radio_id{
+    [NSFetchedResultsController deleteCacheWithName:radiosCache];
     [self.radios.fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"radio_id==%i", radio_id]];
-    
+    [self.radios performFetch:nil];
     for (Radio *r in [self.radios.sections[0] objects]) {
         if ([r.radio_id isEqualToNumber:[NSNumber numberWithInt:radio_id]]){
             return r;
@@ -348,8 +358,9 @@
 }
 
 -(Stream*)findStreamId:(int)stream_id{
+    [NSFetchedResultsController deleteCacheWithName:streamsCache];
     [self.streams.fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"stream_id==%i", stream_id]];
-    
+    [self.streams performFetch:nil];
     for (Stream *s in [self.streams.sections[0] objects]) {
         if ([s.stream_id isEqualToNumber:[NSNumber numberWithInt:stream_id]]){
             return s;

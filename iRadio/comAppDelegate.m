@@ -53,7 +53,7 @@
 
     _isInLoadXML = NO;
     
-    _playerClass = [[comPlayer alloc]initWithURL:@""];
+    _playerClass = [[comPlayer alloc]init];
     _playerClass.delegate = self;
     
     NSDictionary *userDefaultsDefaults = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -159,7 +159,7 @@
                      //TODO: parse data from XML
                      for (NSDictionary *item in d) {
                          //TODO: separate artist and song
-                         
+                         _artArtist = [item objectForKey:@"ARTIST"];
                      }
                      
                  }
