@@ -41,12 +41,14 @@
 		F5F73A861880958B009DD284 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F73A761880958B009DD284 /* MessageUI.framework */; };
 		F5F73A871880958B009DD284 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F73A771880958B009DD284 /* QuartzCore.framework */; };
 		F5F73A891880958B009DD284 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F73A791880958B009DD284 /* SystemConfiguration.framework */; };
-		F5FDD84118866814000C9D71 /* Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FDD84018866814000C9D71 /* Stream.m */; };
-		F5FDD84418866814000C9D71 /* Listened.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FDD84318866814000C9D71 /* Listened.m */; };
-		F5FDD84718866814000C9D71 /* Radio.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FDD84618866814000C9D71 /* Radio.m */; };
-		F5FDD84A18866814000C9D71 /* Categorie.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FDD84918866814000C9D71 /* Categorie.m */; };
-		F5FDD84D18866814000C9D71 /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FDD84C18866814000C9D71 /* Favorite.m */; };
-		F5FDD8511886774C000C9D71 /* comEditableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FDD8501886774C000C9D71 /* comEditableTableViewCell.m */; };
+		F5FDD8541886C13B000C9D71 /* Categorie.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FDD8531886C13B000C9D71 /* Categorie.m */; };
+		F5FDD8571886C13B000C9D71 /* Radio.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FDD8561886C13B000C9D71 /* Radio.m */; };
+		F5FDD85A1886C13B000C9D71 /* Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FDD8591886C13B000C9D71 /* Stream.m */; };
+		F5FDD85D1886C13B000C9D71 /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FDD85C1886C13B000C9D71 /* Favorite.m */; };
+		F5FDD8601886C13C000C9D71 /* Listened.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FDD85F1886C13C000C9D71 /* Listened.m */; };
+		F5FDD8671886CF8E000C9D71 /* comRadioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FDD8661886CF8E000C9D71 /* comRadioViewController.m */; };
+		F5FDD86A18870B47000C9D71 /* comStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FDD86918870B47000C9D71 /* comStreamViewController.m */; };
+		F5FDD86E188712E1000C9D71 /* comCategorieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FDD86D188712E1000C9D71 /* comCategorieViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,18 +114,22 @@
 		F5F73A761880958B009DD284 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		F5F73A771880958B009DD284 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F5F73A791880958B009DD284 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		F5FDD83F18866814000C9D71 /* Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stream.h; path = DataModel/Stream.h; sourceTree = "<group>"; };
-		F5FDD84018866814000C9D71 /* Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Stream.m; path = DataModel/Stream.m; sourceTree = "<group>"; };
-		F5FDD84218866814000C9D71 /* Listened.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Listened.h; path = DataModel/Listened.h; sourceTree = "<group>"; };
-		F5FDD84318866814000C9D71 /* Listened.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Listened.m; path = DataModel/Listened.m; sourceTree = "<group>"; };
-		F5FDD84518866814000C9D71 /* Radio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Radio.h; path = DataModel/Radio.h; sourceTree = "<group>"; };
-		F5FDD84618866814000C9D71 /* Radio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Radio.m; path = DataModel/Radio.m; sourceTree = "<group>"; };
-		F5FDD84818866814000C9D71 /* Categorie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Categorie.h; path = DataModel/Categorie.h; sourceTree = "<group>"; };
-		F5FDD84918866814000C9D71 /* Categorie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Categorie.m; path = DataModel/Categorie.m; sourceTree = "<group>"; };
-		F5FDD84B18866814000C9D71 /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Favorite.h; path = DataModel/Favorite.h; sourceTree = "<group>"; };
-		F5FDD84C18866814000C9D71 /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Favorite.m; path = DataModel/Favorite.m; sourceTree = "<group>"; };
-		F5FDD84F1886774C000C9D71 /* comEditableTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = comEditableTableViewCell.h; path = cells/comEditableTableViewCell.h; sourceTree = "<group>"; };
-		F5FDD8501886774C000C9D71 /* comEditableTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = comEditableTableViewCell.m; path = cells/comEditableTableViewCell.m; sourceTree = "<group>"; };
+		F5FDD8521886C13B000C9D71 /* Categorie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Categorie.h; path = DataModel/Categorie.h; sourceTree = "<group>"; };
+		F5FDD8531886C13B000C9D71 /* Categorie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Categorie.m; path = DataModel/Categorie.m; sourceTree = "<group>"; };
+		F5FDD8551886C13B000C9D71 /* Radio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Radio.h; path = DataModel/Radio.h; sourceTree = "<group>"; };
+		F5FDD8561886C13B000C9D71 /* Radio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Radio.m; path = DataModel/Radio.m; sourceTree = "<group>"; };
+		F5FDD8581886C13B000C9D71 /* Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stream.h; path = DataModel/Stream.h; sourceTree = "<group>"; };
+		F5FDD8591886C13B000C9D71 /* Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Stream.m; path = DataModel/Stream.m; sourceTree = "<group>"; };
+		F5FDD85B1886C13B000C9D71 /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Favorite.h; path = DataModel/Favorite.h; sourceTree = "<group>"; };
+		F5FDD85C1886C13B000C9D71 /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Favorite.m; path = DataModel/Favorite.m; sourceTree = "<group>"; };
+		F5FDD85E1886C13C000C9D71 /* Listened.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Listened.h; path = DataModel/Listened.h; sourceTree = "<group>"; };
+		F5FDD85F1886C13C000C9D71 /* Listened.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Listened.m; path = DataModel/Listened.m; sourceTree = "<group>"; };
+		F5FDD8651886CF8E000C9D71 /* comRadioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comRadioViewController.h; sourceTree = "<group>"; };
+		F5FDD8661886CF8E000C9D71 /* comRadioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comRadioViewController.m; sourceTree = "<group>"; };
+		F5FDD86818870B38000C9D71 /* comStreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comStreamViewController.h; sourceTree = "<group>"; };
+		F5FDD86918870B47000C9D71 /* comStreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comStreamViewController.m; sourceTree = "<group>"; };
+		F5FDD86C188712E1000C9D71 /* comCategorieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = comCategorieViewController.h; path = edit/comCategorieViewController.h; sourceTree = "<group>"; };
+		F5FDD86D188712E1000C9D71 /* comCategorieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = comCategorieViewController.m; path = edit/comCategorieViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,17 +162,17 @@
 		F5B353521882891D0011ADD7 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				F5FDD84B18866814000C9D71 /* Favorite.h */,
-				F5FDD84C18866814000C9D71 /* Favorite.m */,
-				F5FDD84818866814000C9D71 /* Categorie.h */,
-				F5FDD84918866814000C9D71 /* Categorie.m */,
-				F5FDD84518866814000C9D71 /* Radio.h */,
-				F5FDD84618866814000C9D71 /* Radio.m */,
-				F5FDD84218866814000C9D71 /* Listened.h */,
-				F5FDD84318866814000C9D71 /* Listened.m */,
-				F5FDD83F18866814000C9D71 /* Stream.h */,
-				F5FDD84018866814000C9D71 /* Stream.m */,
 				F5B35353188289410011ADD7 /* iRadio.xcdatamodeld */,
+				F5FDD85E1886C13C000C9D71 /* Listened.h */,
+				F5FDD85F1886C13C000C9D71 /* Listened.m */,
+				F5FDD85B1886C13B000C9D71 /* Favorite.h */,
+				F5FDD85C1886C13B000C9D71 /* Favorite.m */,
+				F5FDD8581886C13B000C9D71 /* Stream.h */,
+				F5FDD8591886C13B000C9D71 /* Stream.m */,
+				F5FDD8551886C13B000C9D71 /* Radio.h */,
+				F5FDD8561886C13B000C9D71 /* Radio.m */,
+				F5FDD8521886C13B000C9D71 /* Categorie.h */,
+				F5FDD8531886C13B000C9D71 /* Categorie.m */,
 				F5B35365188487140011ADD7 /* comData.h */,
 				F5B35366188487140011ADD7 /* comData.m */,
 				F5B35368188492940011ADD7 /* comXMLParseAbRadio.h */,
@@ -277,7 +283,11 @@
 		F5F73A3D188094D9009DD284 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				F5FDD84E18867705000C9D71 /* cells */,
+				F5FDD86B188712B5000C9D71 /* edit */,
+				F5FDD86818870B38000C9D71 /* comStreamViewController.h */,
+				F5FDD86918870B47000C9D71 /* comStreamViewController.m */,
+				F5FDD8651886CF8E000C9D71 /* comRadioViewController.h */,
+				F5FDD8661886CF8E000C9D71 /* comRadioViewController.m */,
 				F5B3534C1882889D0011ADD7 /* comCategoryViewController.h */,
 				F5B3534D1882889D0011ADD7 /* comCategoryViewController.m */,
 				F5B3534E1882889D0011ADD7 /* comDetailViewController.h */,
@@ -323,13 +333,13 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
-		F5FDD84E18867705000C9D71 /* cells */ = {
+		F5FDD86B188712B5000C9D71 /* edit */ = {
 			isa = PBXGroup;
 			children = (
-				F5FDD84F1886774C000C9D71 /* comEditableTableViewCell.h */,
-				F5FDD8501886774C000C9D71 /* comEditableTableViewCell.m */,
+				F5FDD86C188712E1000C9D71 /* comCategorieViewController.h */,
+				F5FDD86D188712E1000C9D71 /* comCategorieViewController.m */,
 			);
-			name = cells;
+			name = edit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -422,24 +432,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5FDD8541886C13B000C9D71 /* Categorie.m in Sources */,
+				F5FDD85A1886C13B000C9D71 /* Stream.m in Sources */,
+				F5FDD8671886CF8E000C9D71 /* comRadioViewController.m in Sources */,
 				F5B353511882889D0011ADD7 /* comDetailViewController.m in Sources */,
 				F5F73A64188094D9009DD284 /* AsyncImageView.m in Sources */,
-				F5FDD84A18866814000C9D71 /* Categorie.m in Sources */,
-				F5FDD84718866814000C9D71 /* Radio.m in Sources */,
+				F5FDD86E188712E1000C9D71 /* comCategorieViewController.m in Sources */,
 				F5F73A09188093F2009DD284 /* comAppDelegate.m in Sources */,
-				F5FDD84118866814000C9D71 /* Stream.m in Sources */,
 				F5B3536A188492940011ADD7 /* comXMLParseAbRadio.m in Sources */,
+				F5FDD8601886C13C000C9D71 /* Listened.m in Sources */,
+				F5FDD85D1886C13B000C9D71 /* Favorite.m in Sources */,
 				F5F73A05188093F2009DD284 /* main.m in Sources */,
 				F5B353A518858FF10011ADD7 /* comDamek.m in Sources */,
 				F5B35367188487140011ADD7 /* comData.m in Sources */,
 				F5B3536D18849EFC0011ADD7 /* comBannerView.m in Sources */,
 				F5B3538A188568F00011ADD7 /* XMLReader.m in Sources */,
 				F5B353501882889D0011ADD7 /* comCategoryViewController.m in Sources */,
+				F5FDD8571886C13B000C9D71 /* Radio.m in Sources */,
 				F5B35355188289410011ADD7 /* iRadio.xcdatamodeld in Sources */,
-				F5FDD8511886774C000C9D71 /* comEditableTableViewCell.m in Sources */,
-				F5FDD84418866814000C9D71 /* Listened.m in Sources */,
-				F5FDD84D18866814000C9D71 /* Favorite.m in Sources */,
 				F5F73A65188094D9009DD284 /* Reachability.m in Sources */,
+				F5FDD86A18870B47000C9D71 /* comStreamViewController.m in Sources */,
 				F5F73A67188094D9009DD284 /* comPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

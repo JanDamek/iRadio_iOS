@@ -6,33 +6,41 @@
 //  Copyright (c) 2014 Jan Damek. All rights reserved.
 //
 
-#import "comCategoryViewController.h"
-#import "Categorie.h"
+#import "comStreamViewController.h"
+#import "Radio.h"
 #import "comDetailViewController.h"
-#import "comRadioViewController.h"
 #import "comAppDelegate.h"
 #import "comBannerView.h"
-#import "comCategorieViewController.h"
+#import "Stream.h"
 
-@interface comCategoryViewController (){
-   NSIndexPath *_accessorTapp;
-}
+@interface comStreamViewController ()
 
 @property (strong, nonatomic) comDetailViewController *detailViewController;
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic, getter = getManagedObjectContext) NSManagedObjectContext *managedObjectContext;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *editBtn;
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @end
 
-@implementation comCategoryViewController
+@implementation comStreamViewController
 
 @synthesize managedObjectContext = _managedObjectContext;
-@synthesize editBtn = _editBtn;
 
-static NSString *fetchCahe = @"CategoriesTable";
+- (void)setDetailItem:(Radio*)newDetailItem
+{
+    if (_detailItem != newDetailItem) {
+        _detailItem = newDetailItem;
+        self.navigationItem.title = _detailItem.name;
+        
+        // Update the view.
+        //        [self configureView];
+    }
+    
+    //    if (self.masterPopoverController != nil) {
+    //        [self.masterPopoverController dismissPopoverAnimated:YES];
+    //    }
+}
 
 - (void)awakeFromNib
 {
@@ -47,16 +55,11 @@ static NSString *fetchCahe = @"CategoriesTable";
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+    self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (comDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
     self.tableView.tableFooterView = [comBannerView getBannerView:self];
-}
-
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    
-    [_editBtn setEnabled:NO];
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,16 +67,19 @@ static NSString *fetchCahe = @"CategoriesTable";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)insertAction:(UIBarButtonItem *)sender {
+
+- (void)insertNewObject:(id)sender
+{
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    Categorie *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    Stream *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
     
     // If appropriate, configure the new managed object.
     // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
     
     newManagedObject.timeStamp = [NSDate date];
-    newManagedObject.title = NSLocalizedString(@"New entry",nil);
+    newManagedObject.name = @"New entry";
+    newManagedObject.radio_rel = _detailItem;
     
     // Save the context.
     NSError *error = nil;
@@ -94,13 +100,12 @@ static NSString *fetchCahe = @"CategoriesTable";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
-    return [sectionInfo numberOfObjects];
+    return [[[self.fetchedResultsController sections][section] objects ]count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"streamCell" forIndexPath:indexPath];
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
@@ -108,7 +113,7 @@ static NSString *fetchCahe = @"CategoriesTable";
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
-    Categorie *c = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Radio *c = [self.fetchedResultsController objectAtIndexPath:indexPath];
     return [c.user_def boolValue];
 }
 
@@ -134,11 +139,17 @@ static NSString *fetchCahe = @"CategoriesTable";
     return NO;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        self.detailViewController.detailItem = object;
+    }
+}
+
 -(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
-    Categorie *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-    comRadioViewController *r = [self.storyboard instantiateViewControllerWithIdentifier:@"radios"];
-    r.detailItem = object;
-    [self.navigationController pushViewController:r animated:YES];
+    Radio *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    
 }
 
 #pragma mark - Fetched results controller
@@ -151,21 +162,22 @@ static NSString *fetchCahe = @"CategoriesTable";
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Categorie" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Stream" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"radio_rel.name == %@", _detailItem.name]];
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"bitrate" ascending:YES];
     NSArray *sortDescriptors = @[sortDescriptor];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:fetchCahe];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     
@@ -232,10 +244,10 @@ static NSString *fetchCahe = @"CategoriesTable";
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    Categorie *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Stream *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    cell.textLabel.text = object.title;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@: %lu", NSLocalizedString(@"Pocet radii:", nil), (unsigned long)[object.radios_rel count]];
+    cell.textLabel.text = object.name;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"format: %@  bitrate: %i  def3g: %i  defWifi: %i", object.type, [object.bitrate intValue], [object.def3g intValue], [object.defWifi intValue] ];
 }
 
 -(NSManagedObjectContext *)getManagedObjectContext{
@@ -244,57 +256,6 @@ static NSString *fetchCahe = @"CategoriesTable";
         _managedObjectContext = d.managedObjectContext;
     }
     return _managedObjectContext;
-}
-
-// called when text changes (including clear)
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
-    [NSFetchedResultsController deleteCacheWithName:fetchCahe];
-    if ([searchText isEqualToString:@""]){
-        [self.fetchedResultsController.fetchRequest setPredicate:nil];
-    } else
-        [self.fetchedResultsController.fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"title CONTAINS [cd] %@",searchText]];
-	NSError *error = nil;
-	if (![self.fetchedResultsController performFetch:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-	    abort();
-	}
-    [self.tableView reloadData];
-    searchBar.showsCancelButton = YES;
-}
-
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [_editBtn setEnabled:NO];
-}
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [_editBtn setEnabled:YES];
-}
-
--(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
-    [searchBar resignFirstResponder];
-    searchBar.showsCancelButton = NO;
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([[segue identifier] isEqualToString:@"editCategorie"]){
-        Categorie *c = [self.fetchedResultsController objectAtIndexPath:self.tableView.indexPathForSelectedRow];
-        comCategorieViewController *cv = [segue destinationViewController];
-        cv.cat = c;
-        if ([segue isKindOfClass:[UIStoryboardPopoverSegue class]])
-            cv.popover = [(UIStoryboardPopoverSegue *)segue popoverController];
-    }
-}
-
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-    if ([identifier isEqualToString:@"radioDetail"]) {
-        NSLog(@"Segue Blocked");
-        //Put your validation code here and return YES or NO as needed
-        return NO;
-    }
-    
-    return YES;
 }
 
 @end

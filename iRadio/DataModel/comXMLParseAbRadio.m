@@ -112,9 +112,10 @@ static NSString *kURLXMLData       = @"http://m.abradio.cz/xml/export.xml";
     rad.artwork = [comDamek getString:[r objectForKey:@"artwork"]];
     rad.logo_ipad = [comDamek getString: [r objectForKey:@"logo_ipad"]];
     rad.program = [comDamek getString: [r objectForKey:@"program"]];
+    rad.categorie_rel = cat;
     
     [cat addRadios_relObject:rad];
-    
+
     //insert stream data
     NSArray *streams = [[r objectForKey:@"streams"] objectForKey:@"stream"];
     if ([streams isKindOfClass:[NSDictionary class]]){
@@ -137,6 +138,7 @@ static NSString *kURLXMLData       = @"http://m.abradio.cz/xml/export.xml";
     str.url = [comDamek getString:[s objectForKey:@"url"]];
     str.type = [comDamek getString:[s objectForKey:@"type"]];
     str.name = [comDamek getString:[s objectForKey:@"name"]];
+    str.radio_rel = rad;
     // str.updated;
     
     [rad addStream_relObject:str];

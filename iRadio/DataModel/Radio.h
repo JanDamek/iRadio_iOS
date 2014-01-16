@@ -24,18 +24,13 @@
 @property (nonatomic, retain) NSDate * timeStamp;
 @property (nonatomic, retain) NSDate * updated;
 @property (nonatomic, retain) NSNumber * user_def;
-@property (nonatomic, retain) NSSet *categorie_rel;
+@property (nonatomic, retain) Categorie *categorie_rel;
 @property (nonatomic, retain) Favorite *favorited_rel;
 @property (nonatomic, retain) Listened *listened_rel;
 @property (nonatomic, retain) NSSet *stream_rel;
 @end
 
 @interface Radio (CoreDataGeneratedAccessors)
-
-- (void)addCategorie_relObject:(Categorie *)value;
-- (void)removeCategorie_relObject:(Categorie *)value;
-- (void)addCategorie_rel:(NSSet *)values;
-- (void)removeCategorie_rel:(NSSet *)values;
 
 - (void)addStream_relObject:(Stream *)value;
 - (void)removeStream_relObject:(Stream *)value;
