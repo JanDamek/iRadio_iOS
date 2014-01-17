@@ -18,6 +18,7 @@
 		F5B3538A188568F00011ADD7 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B35389188568F00011ADD7 /* XMLReader.m */; };
 		F5B353A518858FF10011ADD7 /* comDamek.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B353A418858FF10011ADD7 /* comDamek.m */; };
 		F5B353A71885B3E30011ADD7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5B353A61885B3E30011ADD7 /* Localizable.strings */; };
+		F5D34AA5188984CD004E10E4 /* liblibmms.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D34AA4188984CD004E10E4 /* liblibmms.a */; };
 		F5F739F9188093F2009DD284 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F739F8188093F2009DD284 /* Foundation.framework */; };
 		F5F739FB188093F2009DD284 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F739FA188093F2009DD284 /* CoreGraphics.framework */; };
 		F5F739FD188093F2009DD284 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F739FC188093F2009DD284 /* UIKit.framework */; };
@@ -48,7 +49,7 @@
 		F5FDD8601886C13C000C9D71 /* Listened.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FDD85F1886C13C000C9D71 /* Listened.m */; };
 		F5FDD8671886CF8E000C9D71 /* comRadioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FDD8661886CF8E000C9D71 /* comRadioViewController.m */; };
 		F5FDD86A18870B47000C9D71 /* comStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FDD86918870B47000C9D71 /* comStreamViewController.m */; };
-		F5FDD86E188712E1000C9D71 /* comCategorieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FDD86D188712E1000C9D71 /* comCategorieViewController.m */; };
+		F5FDD86E188712E1000C9D71 /* comCategorieEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FDD86D188712E1000C9D71 /* comCategorieEditViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		F5B353A418858FF10011ADD7 /* comDamek.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comDamek.m; sourceTree = "<group>"; };
 		F5B353A61885B3E30011ADD7 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		F5B353A81885B4CE0011ADD7 /* iRadioHD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = iRadioHD.entitlements; sourceTree = SOURCE_ROOT; };
+		F5D34AA4188984CD004E10E4 /* liblibmms.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = liblibmms.a; sourceTree = "<group>"; };
 		F5F739F5188093F2009DD284 /* iRadioHD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRadioHD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5F739F8188093F2009DD284 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F5F739FA188093F2009DD284 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -128,8 +130,8 @@
 		F5FDD8661886CF8E000C9D71 /* comRadioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comRadioViewController.m; sourceTree = "<group>"; };
 		F5FDD86818870B38000C9D71 /* comStreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comStreamViewController.h; sourceTree = "<group>"; };
 		F5FDD86918870B47000C9D71 /* comStreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = comStreamViewController.m; sourceTree = "<group>"; };
-		F5FDD86C188712E1000C9D71 /* comCategorieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = comCategorieViewController.h; path = edit/comCategorieViewController.h; sourceTree = "<group>"; };
-		F5FDD86D188712E1000C9D71 /* comCategorieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = comCategorieViewController.m; path = edit/comCategorieViewController.m; sourceTree = "<group>"; };
+		F5FDD86C188712E1000C9D71 /* comCategorieEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = comCategorieEditViewController.h; path = edit/comCategorieEditViewController.h; sourceTree = "<group>"; };
+		F5FDD86D188712E1000C9D71 /* comCategorieEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = comCategorieEditViewController.m; path = edit/comCategorieEditViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 				F5F73A871880958B009DD284 /* QuartzCore.framework in Frameworks */,
 				F5F73A891880958B009DD284 /* SystemConfiguration.framework in Frameworks */,
 				F5F739FB188093F2009DD284 /* CoreGraphics.framework in Frameworks */,
+				F5D34AA5188984CD004E10E4 /* liblibmms.a in Frameworks */,
 				F5F739FD188093F2009DD284 /* UIKit.framework in Frameworks */,
 				F5F739F9188093F2009DD284 /* Foundation.framework in Frameworks */,
 			);
@@ -210,6 +213,7 @@
 		F5F739F7188093F2009DD284 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F5D34AA4188984CD004E10E4 /* liblibmms.a */,
 				F5B353791884A1320011ADD7 /* StoreKit.framework */,
 				F5B3537718849FE90011ADD7 /* libGoogleAdMobAds.a */,
 				F5F73A6A1880958B009DD284 /* AdSupport.framework */,
@@ -336,8 +340,8 @@
 		F5FDD86B188712B5000C9D71 /* edit */ = {
 			isa = PBXGroup;
 			children = (
-				F5FDD86C188712E1000C9D71 /* comCategorieViewController.h */,
-				F5FDD86D188712E1000C9D71 /* comCategorieViewController.m */,
+				F5FDD86C188712E1000C9D71 /* comCategorieEditViewController.h */,
+				F5FDD86D188712E1000C9D71 /* comCategorieEditViewController.m */,
 			);
 			name = edit;
 			sourceTree = "<group>";
@@ -437,7 +441,7 @@
 				F5FDD8671886CF8E000C9D71 /* comRadioViewController.m in Sources */,
 				F5B353511882889D0011ADD7 /* comDetailViewController.m in Sources */,
 				F5F73A64188094D9009DD284 /* AsyncImageView.m in Sources */,
-				F5FDD86E188712E1000C9D71 /* comCategorieViewController.m in Sources */,
+				F5FDD86E188712E1000C9D71 /* comCategorieEditViewController.m in Sources */,
 				F5F73A09188093F2009DD284 /* comAppDelegate.m in Sources */,
 				F5B3536A188492940011ADD7 /* comXMLParseAbRadio.m in Sources */,
 				F5FDD8601886C13C000C9D71 /* Listened.m in Sources */,
@@ -560,6 +564,7 @@
 					"$(inherited)",
 					/Users/jandamek/Desktop/iRadio/iRadio/AdMob,
 					/Users/jandamek/Desktop/iRadio,
+					"$(PROJECT_DIR)",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = iRadioHD;
@@ -584,6 +589,7 @@
 					"$(inherited)",
 					/Users/jandamek/Desktop/iRadio/iRadio/AdMob,
 					/Users/jandamek/Desktop/iRadio,
+					"$(PROJECT_DIR)",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = iRadioHD;

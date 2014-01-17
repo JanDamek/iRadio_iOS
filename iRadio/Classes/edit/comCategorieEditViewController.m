@@ -6,14 +6,14 @@
 //  Copyright (c) 2014 Jan Damek. All rights reserved.
 //
 
-#import "comCategorieViewController.h"
+#import "comCategorieEditViewController.h"
 #import "comAppDelegate.h"
 
-@interface comCategorieViewController ()
+@interface comCategorieEditViewController ()
 
 @end
 
-@implementation comCategorieViewController
+@implementation comCategorieEditViewController
 
 @synthesize cat = _cat;
 

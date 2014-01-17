@@ -75,10 +75,10 @@
             </objects>
             <point key="canvasLocation" x="-687" y="-630"/>
         </scene>
-        <!--Com Categorie View Controller-->
+        <!--Com Categorie Edit View Controller-->
         <scene sceneID="Ytx-pR-ZT1">
             <objects>
-                <viewController id="UfP-vM-ao9" customClass="comCategorieViewController" sceneMemberID="viewController">
+                <viewController id="UfP-vM-ao9" customClass="comCategorieEditViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8SC-7R-GfH"/>
                         <viewControllerLayoutGuide type="bottom" id="vnm-R7-vcm"/>
@@ -171,12 +171,6 @@
                     </tableView>
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="5tz-ft-XOf"/>
-                        <barButtonItem systemItem="add" id="3kS-Jy-M6D">
-                            <connections>
-                                <action selector="insertAction:" destination="V5q-Ta-iI4" id="Xko-1X-M1L"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="BMv-8c-uyY"/>
                         <barButtonItem systemItem="edit" id="zXr-dg-OyR">
                             <connections>
                                 <segue destination="UfP-vM-ao9" kind="popover" identifier="editCategorie" popoverAnchorBarButtonItem="zXr-dg-OyR" id="YGd-4K-wdU">
@@ -185,7 +179,13 @@
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="Categories" id="O7H-by-R9o"/>
+                    <navigationItem key="navigationItem" title="Categories" id="O7H-by-R9o">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="3kS-Jy-M6D">
+                            <connections>
+                                <action selector="insertAction:" destination="V5q-Ta-iI4" id="Xko-1X-M1L"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="editBtn" destination="zXr-dg-OyR" id="Z4r-oa-xfj"/>
@@ -193,7 +193,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vqS-zu-OF4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="859" y="-631"/>
+            <point key="canvasLocation" x="859" y="-630"/>
         </scene>
         <!--Com Radio View Controller - Radia-->
         <scene sceneID="CFx-Ui-hoc">
@@ -247,8 +247,23 @@
                             <outlet property="delegate" destination="Ivx-zA-cBv" id="4nE-RB-dYY"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="M1W-bW-e2e"/>
+                        <barButtonItem systemItem="edit" id="Ka5-XD-ALd">
+                            <connections>
+                                <segue destination="5P9-Qr-T5f" kind="popover" popoverAnchorBarButtonItem="Ka5-XD-ALd" id="HBV-h4-J7a">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Radia" id="iHt-S7-GKt">
                         <barButtonItem key="backBarButtonItem" title="Back" id="h8O-wY-88w"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="nmK-B4-G1M">
+                            <connections>
+                                <action selector="insertAction:" destination="V5q-Ta-iI4" id="tT4-eb-BiP"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -256,6 +271,121 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wD3-eg-Kac" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1305" y="-630"/>
+        </scene>
+        <!--Table View Controller - Radio Edit-->
+        <scene sceneID="pyc-MZ-bc2">
+            <objects>
+                <tableViewController id="yE7-11-cgP" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="gJc-dj-OTa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="670"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <sections>
+                            <tableViewSection headerTitle="Radio description" id="TbA-ln-hYL">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="oM5-0m-f0g" style="IBUITableViewCellStyleDefault" id="xLh-Xb-i6K">
+                                        <rect key="frame" x="0.0" y="119" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xLh-Xb-i6K" id="ydf-zC-gxM">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oM5-0m-f0g">
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sDo-xx-bmi">
+                                                    <rect key="frame" x="100" y="7" width="190" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="190" id="r1I-xC-BMO"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="sDo-xx-bmi" secondAttribute="trailing" constant="30" id="MiL-tA-MZU"/>
+                                                <constraint firstItem="sDo-xx-bmi" firstAttribute="top" secondItem="ydf-zC-gxM" secondAttribute="top" constant="7" id="uAh-cT-jXj"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="r5c-5U-5GD" style="IBUITableViewCellStyleDefault" id="yZx-TN-RUl">
+                                        <rect key="frame" x="0.0" y="163" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yZx-TN-RUl" id="h8B-EG-yVD">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Interpret:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="r5c-5U-5GD">
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pje-rH-6X2">
+                                                    <rect key="frame" x="100" y="7" width="190" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="190" id="PR5-56-cIc"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Pje-rH-6X2" firstAttribute="top" secondItem="h8B-EG-yVD" secondAttribute="top" constant="7" id="SOt-8x-fA6"/>
+                                                <constraint firstAttribute="trailing" secondItem="Pje-rH-6X2" secondAttribute="trailing" constant="30" id="h9u-iy-4Ge"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="120" id="DfB-Wi-HDk">
+                                        <rect key="frame" x="0.0" y="207" width="320" height="120"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DfB-Wi-HDk" id="hx3-ua-zO5">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TU9-IB-EW8">
+                                                    <rect key="frame" x="15" y="35" width="275" height="76"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yau-pP-G96">
+                                                    <rect key="frame" x="15" y="11" width="124" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="yE7-11-cgP" id="mE5-f1-ROe"/>
+                            <outlet property="delegate" destination="yE7-11-cgP" id="r6V-VN-saj"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="VwL-oY-KPv"/>
+                        <barButtonItem systemItem="save" id="wzM-N0-30k"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Radio Edit" id="Re4-61-Fcs"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GDw-mh-k2b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1305" y="-2354"/>
         </scene>
         <!--Com Stream View Controller - Streamy-->
         <scene sceneID="hA4-r1-ONh">
@@ -297,7 +427,17 @@
                             <outlet property="delegate" destination="qbo-sc-MlK" id="3Hv-gp-oBd"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Streamy" id="Fha-X5-TTA"/>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="7Cb-ev-uEj"/>
+                        <barButtonItem systemItem="edit" id="xVL-AL-c1l"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Streamy" id="Fha-X5-TTA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="FFx-tG-gdZ">
+                            <connections>
+                                <action selector="insertAction:" destination="V5q-Ta-iI4" id="Ta8-As-KEI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
@@ -308,10 +448,14 @@
         <!--Navigation Controller-->
         <scene sceneID="GM6-7L-ifD">
             <objects>
-                <navigationController id="fK6-3W-eE8" sceneMemberID="viewController">
+                <navigationController toolbarHidden="NO" id="fK6-3W-eE8" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="H2S-qx-XYK">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="fsx-Fa-4qm">
+                        <rect key="frame" x="0.0" y="724" width="703" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="Upf-GK-Jh0" kind="relationship" relationship="rootViewController" id="N0t-0v-3WN"/>
                     </connections>
@@ -319,6 +463,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fex-TD-Ecw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-366" y="248"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="U9m-LI-xQU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="5P9-Qr-T5f" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="670"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="B0C-Hw-asD">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="UNb-OE-WcZ">
+                        <rect key="frame" x="0.0" y="626" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="yE7-11-cgP" kind="relationship" relationship="rootViewController" id="dvq-pS-Rqn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JwB-bn-vx7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1305" y="-1513"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

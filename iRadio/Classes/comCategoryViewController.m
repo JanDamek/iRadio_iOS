@@ -12,7 +12,7 @@
 #import "comRadioViewController.h"
 #import "comAppDelegate.h"
 #import "comBannerView.h"
-#import "comCategorieViewController.h"
+#import "comCategorieEditViewController.h"
 
 @interface comCategoryViewController (){
    NSIndexPath *_accessorTapp;
@@ -280,7 +280,7 @@ static NSString *fetchCahe = @"CategoriesTable";
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([[segue identifier] isEqualToString:@"editCategorie"]){
         Categorie *c = [self.fetchedResultsController objectAtIndexPath:self.tableView.indexPathForSelectedRow];
-        comCategorieViewController *cv = [segue destinationViewController];
+        comCategorieEditViewController *cv = [segue destinationViewController];
         cv.cat = c;
         if ([segue isKindOfClass:[UIStoryboardPopoverSegue class]])
             cv.popover = [(UIStoryboardPopoverSegue *)segue popoverController];

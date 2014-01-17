@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Categorie.h"
 
-@interface comCategorieViewController : UIViewController
+@interface comCategorieEditViewController : UIViewController
 
 @property (nonatomic, strong) Categorie *cat;
 @property (nonatomic, weak) UIPopoverController *popover;

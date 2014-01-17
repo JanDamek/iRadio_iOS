@@ -43,11 +43,11 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="h3b-A0-Yql" detailTextLabel="tcF-nv-SzH" style="IBUITableViewCellStyleSubtitle" id="eEz-80-k6X">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="h3b-A0-Yql" detailTextLabel="tcF-nv-SzH" style="IBUITableViewCellStyleSubtitle" id="eEz-80-k6X">
                                 <rect key="frame" x="0.0" y="130" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eEz-80-k6X" id="GcX-fw-IsN">
-                                    <rect key="frame" x="0.0" y="0.0" width="273" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="253" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h3b-A0-Yql">
@@ -79,20 +79,20 @@
                         </connections>
                     </tableView>
                     <toolbarItems>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="qds-rO-YUQ"/>
-                        <barButtonItem systemItem="add" id="1f4-Wp-O0r">
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="miF-KU-q9x"/>
+                        <barButtonItem systemItem="edit" id="HPR-R7-QD5">
+                            <connections>
+                                <segue destination="yIB-lS-614" kind="modal" id="8iq-98-gin"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Categories" id="snT-9z-n2I">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1f4-Wp-O0r">
                             <connections>
                                 <action selector="insertAction:" destination="NRT-bm-ncq" id="n1p-TG-1yr"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="miF-KU-q9x"/>
-                        <barButtonItem systemItem="edit" id="HPR-R7-QD5">
-                            <connections>
-                                <segue destination="yIB-lS-614" kind="modal" identifier="editCategorie" id="FiO-ep-O7l"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
-                    <navigationItem key="navigationItem" title="Categories" id="snT-9z-n2I"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="editBtn" destination="HPR-R7-QD5" id="1cE-7S-Shi"/>
                     </connections>
@@ -110,11 +110,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="streamCell" textLabel="HSY-0a-ycM" detailTextLabel="Wgr-tD-8W4" style="IBUITableViewCellStyleSubtitle" id="dUW-GU-DUh">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="streamCell" textLabel="HSY-0a-ycM" detailTextLabel="Wgr-tD-8W4" style="IBUITableViewCellStyleSubtitle" id="dUW-GU-DUh">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dUW-GU-DUh" id="Pyc-0m-3Mh">
-                                    <rect key="frame" x="0.0" y="0.0" width="273" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HSY-0a-ycM">
@@ -144,13 +144,15 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="q7W-F9-0ne"/>
                         <barButtonItem systemItem="edit" id="tvt-oW-s4n"/>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="Streams" id="8Gx-ir-dYm"/>
+                    <navigationItem key="navigationItem" title="Streams" id="8Gx-ir-dYm">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="MJn-4M-ot2"/>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3v-Dz-G8V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1290" y="64"/>
+            <point key="canvasLocation" x="1781" y="64"/>
         </scene>
         <!--Com Radio View Controller - Radios-->
         <scene sceneID="cgg-yF-96J">
@@ -197,7 +199,8 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="0x1-hJ-bnH" kind="push" identifier="streamDetail" trigger="accessoryAction" id="H2A-sb-v1E"/>
+                                    <segue destination="0x1-hJ-bnH" kind="push" identifier="radioDetail" trigger="accessoryAction" id="H2A-sb-v1E"/>
+                                    <segue destination="dT0-2b-7yl" kind="push" id="7yW-L1-I1e"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -208,10 +211,14 @@
                     </tableView>
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="82t-9X-bEN"/>
-                        <barButtonItem systemItem="edit" id="Qpr-3Y-K5Y"/>
+                        <barButtonItem systemItem="edit" id="6aP-6F-gSK">
+                            <connections>
+                                <segue destination="VfI-J4-yda" kind="modal" id="VQY-xG-yZB"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Radios" id="Xy4-Rt-oiK">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="zXL-8t-qKA"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="PvZ-M7-I7L"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -220,10 +227,10 @@
             </objects>
             <point key="canvasLocation" x="871" y="64"/>
         </scene>
-        <!--Com Categorie View Controller-->
+        <!--Com Categorie Edit View Controller-->
         <scene sceneID="gGK-3r-OYB">
             <objects>
-                <viewController storyboardIdentifier="editCategorie" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yIB-lS-614" customClass="comCategorieViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editCategorie" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yIB-lS-614" customClass="comCategorieEditViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2HC-hD-2LS"/>
                         <viewControllerLayoutGuide type="bottom" id="e5h-EV-SLH"/>
@@ -254,11 +261,52 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="h3L-2t-xgh"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2c2-GE-qJ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="454" y="841"/>
+            <point key="canvasLocation" x="459" y="745"/>
+        </scene>
+        <!--Table View Controller - Radio edit-->
+        <scene sceneID="zSN-Cx-hOU">
+            <objects>
+                <tableViewController id="Kid-Mg-Crs" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="GDQ-eP-Oaj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="hJZ-QK-4Rf">
+                            <rect key="frame" x="0.0" y="130" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <items/>
+                        </toolbar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="cPd-O6-A2j">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cPd-O6-A2j" id="7qe-hh-JaW">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Kid-Mg-Crs" id="qyz-CN-gnF"/>
+                            <outlet property="delegate" destination="Kid-Mg-Crs" id="AH2-nD-Sq3"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="VEo-Um-8Sq"/>
+                        <barButtonItem systemItem="save" id="EJi-C1-eMh"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Radio edit" id="BT8-FU-cvY"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HVG-gn-1ew" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="871" y="745"/>
         </scene>
         <!--Com Detail View Controller - Detail-->
         <scene sceneID="xPU-Ug-XXT">
@@ -285,9 +333,15 @@
                     <toolbarItems>
                         <barButtonItem systemItem="play" id="cEV-nl-6ch"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="UWC-db-IFN"/>
-                        <barButtonItem systemItem="edit" id="8gv-i3-Rpg"/>
+                        <barButtonItem systemItem="edit" id="HW2-7s-Rr1"/>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="Detail" id="f7l-iz-IDY"/>
+                    <navigationItem key="navigationItem" title="Detail" id="f7l-iz-IDY">
+                        <barButtonItem key="rightBarButtonItem" title="Stream" id="VR5-Uc-xtq">
+                            <connections>
+                                <segue destination="0x1-hJ-bnH" kind="push" id="qI8-3l-qUC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -296,7 +350,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g86-lm-Xsf" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1706" y="64"/>
+            <point key="canvasLocation" x="1355" y="64"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dpM-ID-JLr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VfI-J4-yda" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lIe-kO-Vwc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Kid-Mg-Crs" kind="relationship" relationship="rootViewController" id="6Bo-Eb-8Eh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jK5-iw-d3i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="871" y="1340"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -304,4 +376,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="qI8-3l-qUC"/>
+    </inferredMetricsTieBreakers>
 </document>
