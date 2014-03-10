@@ -7,20 +7,21 @@
 //
 
 #import "comRadioViewController.h"
-#import "Radio.h"
+
 #import "comDetailViewController.h"
 #import "comAppDelegate.h"
 #import "comBannerView.h"
-#import "Categorie.h"
 #import "comStreamViewController.h"
+#import "comRadioEditViewController.h"
+#import "AsyncImageView.h"
 
 @interface comRadioViewController ()
 
 @property (strong, nonatomic) comDetailViewController *detailViewController;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *editBtn;
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic, getter = getManagedObjectContext) NSManagedObjectContext *managedObjectContext;
+@property (weak, nonatomic) comRadioEditViewController *radioController;
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @end
@@ -28,20 +29,15 @@
 @implementation comRadioViewController
 
 @synthesize managedObjectContext = _managedObjectContext;
+@synthesize radioController = _radioController;
+@synthesize parentItem = _parentItem;
 
 - (void)setDetailItem:(Categorie*)newDetailItem
 {
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
-        self.navigationItem.title = _detailItem.title;
-        
-        // Update the view.
-        //        [self configureView];
+    if (_parentItem != newDetailItem) {
+        _parentItem = newDetailItem;
+        self.navigationItem.title = _parentItem.title;
     }
-    
-    //    if (self.masterPopoverController != nil) {
-    //        [self.masterPopoverController dismissPopoverAnimated:YES];
-    //    }
 }
 
 - (void)awakeFromNib
@@ -56,11 +52,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+
     self.detailViewController = (comDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
-    
+    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:self.navigationItem.rightBarButtonItem,self.editButtonItem,nil];
+
     self.tableView.tableFooterView = [comBannerView getBannerView:self];
 }
 
@@ -70,7 +65,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)insertNewObject:(id)sender
+- (IBAction)insertNewObject:(UIBarButtonItem *)sender
 {
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
@@ -81,7 +76,7 @@
     
     newManagedObject.timeStamp = [NSDate date];
     newManagedObject.name = @"New entry";
-    newManagedObject.categorie_rel = _detailItem;
+    newManagedObject.categorie_rel = _parentItem;
     
     // Save the context.
     NSError *error = nil;
@@ -144,16 +139,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        self.detailViewController.detailItem = object;
+        Radio *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        self.detailViewController.radio = object;
     }
 }
 
 -(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
-    Radio *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-    comStreamViewController *c = [self.storyboard instantiateViewControllerWithIdentifier:@"streams"];
-    c.detailItem = object;
-    [self.navigationController pushViewController:c animated:YES];
+    self.radioController.radio = [[self fetchedResultsController] objectAtIndexPath:indexPath];
 }
 
 #pragma mark - Fetched results controller
@@ -168,7 +160,7 @@
     // Edit the entity name as appropriate.
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Radio" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
-    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"categorie_rel.title == %@", _detailItem.title]];
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"categorie_rel.title == %@", _parentItem.title]];
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
@@ -251,7 +243,15 @@
     Radio *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     cell.textLabel.text = object.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@: %lu", NSLocalizedString(@"Pocet streamu:", nil), (unsigned long)[object.stream_rel count]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@: %lu", NSLocalizedString(@"Pocet streamu", nil), (unsigned long)[object.stream_rel count]];
+    
+    
+    NSString *lo;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        lo = object.logo;
+    } else lo = object.logo_ipad;
+    UIImage *image = [AsyncImageView getImage:lo imageView:cell.imageView cell:cell];
+    cell.imageView.image = image;
 }
 
 -(NSManagedObjectContext *)getManagedObjectContext{
@@ -275,13 +275,13 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     if ([searchText isEqualToString:@""]){
         if (searchBar.selectedScopeButtonIndex==0){
-            [self.fetchedResultsController.fetchRequest setPredicate: [NSPredicate predicateWithFormat:@"categorie_rel.title == %@", _detailItem.title]];
+            [self.fetchedResultsController.fetchRequest setPredicate: [NSPredicate predicateWithFormat:@"categorie_rel.title == %@", _parentItem.title]];
         }else
             [self.fetchedResultsController.fetchRequest setPredicate:nil];
     } else{
         NSPredicate *p = nil;
         if (searchBar.selectedScopeButtonIndex==0){
-            p = [NSPredicate predicateWithFormat:@"(categorie_rel.title == %@) and (name CONTAINS[cd] %@)", _detailItem.title, searchText];
+            p = [NSPredicate predicateWithFormat:@"(categorie_rel.title == %@) and (name CONTAINS[cd] %@)", _parentItem.title, searchText];
         } else
             p = [NSPredicate predicateWithFormat:@"(name CONTAINS[cd] %@)", searchText];
         
@@ -305,11 +305,16 @@
     [searchBar sizeToFit];
 }
 
--(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
-    if ([identifier isEqualToString:@"radioDetail"]){
-        return NO;
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier] isEqualToString:@"editRadio"]){
+        self.radioController = [segue destinationViewController];
+        if ([segue isKindOfClass:[UIStoryboardPopoverSegue class]])
+            self.radioController.popover = [(UIStoryboardPopoverSegue *)segue popoverController];
+    }else{
+        Radio *object = [[self fetchedResultsController] objectAtIndexPath:self.tableView.indexPathForSelectedRow];
+        comStreamViewController *r = [segue destinationViewController];
+        r.detailItem = object;
     }
-    return YES;
 }
 
 @end

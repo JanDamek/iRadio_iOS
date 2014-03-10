@@ -22,15 +22,16 @@
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic, getter = getManagedObjectContext) NSManagedObjectContext *managedObjectContext;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *editBtn;
+@property (weak, nonatomic) comCategorieEditViewController *editController;
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+
 @end
 
 @implementation comCategoryViewController
 
 @synthesize managedObjectContext = _managedObjectContext;
-@synthesize editBtn = _editBtn;
+@synthesize editController = _editController;
 
 static NSString *fetchCahe = @"CategoriesTable";
 
@@ -49,14 +50,9 @@ static NSString *fetchCahe = @"CategoriesTable";
 	// Do any additional setup after loading the view, typically from a nib.
     
     self.detailViewController = (comDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
-    
-    self.tableView.tableFooterView = [comBannerView getBannerView:self];
-}
+    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:self.navigationItem.rightBarButtonItem,self.editButtonItem,nil];
 
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    
-    [_editBtn setEnabled:NO];
+    self.tableView.tableFooterView = [comBannerView getBannerView:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,6 +60,7 @@ static NSString *fetchCahe = @"CategoriesTable";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 - (IBAction)insertAction:(UIBarButtonItem *)sender {
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
@@ -135,10 +132,7 @@ static NSString *fetchCahe = @"CategoriesTable";
 }
 
 -(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
-    Categorie *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-    comRadioViewController *r = [self.storyboard instantiateViewControllerWithIdentifier:@"radios"];
-    r.detailItem = object;
-    [self.navigationController pushViewController:r animated:YES];
+    self.editController.cat = [[self fetchedResultsController] objectAtIndexPath:indexPath];
 }
 
 #pragma mark - Fetched results controller
@@ -235,7 +229,7 @@ static NSString *fetchCahe = @"CategoriesTable";
     Categorie *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     cell.textLabel.text = object.title;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@: %lu", NSLocalizedString(@"Pocet radii:", nil), (unsigned long)[object.radios_rel count]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@: %lu", NSLocalizedString(@"Pocet radii", nil), (unsigned long)[object.radios_rel count]];
 }
 
 -(NSManagedObjectContext *)getManagedObjectContext{
@@ -264,14 +258,6 @@ static NSString *fetchCahe = @"CategoriesTable";
     searchBar.showsCancelButton = YES;
 }
 
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [_editBtn setEnabled:NO];
-}
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [_editBtn setEnabled:YES];
-}
-
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
     [searchBar resignFirstResponder];
     searchBar.showsCancelButton = NO;
@@ -279,22 +265,14 @@ static NSString *fetchCahe = @"CategoriesTable";
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([[segue identifier] isEqualToString:@"editCategorie"]){
-        Categorie *c = [self.fetchedResultsController objectAtIndexPath:self.tableView.indexPathForSelectedRow];
-        comCategorieEditViewController *cv = [segue destinationViewController];
-        cv.cat = c;
+        self.editController = [segue destinationViewController];
         if ([segue isKindOfClass:[UIStoryboardPopoverSegue class]])
-            cv.popover = [(UIStoryboardPopoverSegue *)segue popoverController];
+            self.editController.popover = [(UIStoryboardPopoverSegue *)segue popoverController];
+    }else{
+        Categorie *object = [[self fetchedResultsController] objectAtIndexPath:self.tableView.indexPathForSelectedRow];
+        comRadioViewController *r = [segue destinationViewController];
+        r.parentItem = object;
     }
-}
-
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-    if ([identifier isEqualToString:@"radioDetail"]) {
-        NSLog(@"Segue Blocked");
-        //Put your validation code here and return YES or NO as needed
-        return NO;
-    }
-    
-    return YES;
 }
 
 @end

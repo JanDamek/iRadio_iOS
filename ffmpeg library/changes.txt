@@ -1,0 +1,162 @@
+
++avcodec.h and integer.c
+ add 
+ #include "config.h"
+ 
+
++ change buffer size
+
+aviobuf.c
+//#define IO_BUFFER_SIZE 32768
+// AJS major hack MAJOR HACK
+//#define IO_BUFFER_SIZE 1024*32
+#define IO_BUFFER_SIZE 1024*8
+
++ add RTSP BBC - keep alive
++ change 12 bytes to 11 bytes in RTSP
++ rtsp.c
+
+    if (!lower_transport_mask)
+        lower_transport_mask = (1 << RTSP_LOWER_TRANSPORT_LAST) - 1;
+
+	// AJS 
+	lower_transport_mask = (1<< RTSP_LOWER_TRANSPORT_TCP);
+..
+..
+..
+
+static int count=0;
+
+static int rtsp_read_packet(AVFormatContext *s,
+                            AVPacket *pkt)
+{
+    RTSPState *rt = s->priv_data;
+    RTSPStream *rtsp_st;
+    int ret, len;
+    uint8_t buf[RTP_MAX_PACKET_LENGTH];
+
+    if (rt->server_type == RTSP_SERVER_REAL && rt->need_subscription) {
+        int i;
+        RTSPHeader reply1, *reply = &reply1;
+        char cmd[1024];
+
+        snprintf(cmd, sizeof(cmd),
+                 "SET_PARAMETER %s RTSP/1.0\r\n"
+                 "Subscribe: ",
+                 s->filename);
+        for (i = 0; i < rt->nb_rtsp_streams; i++) {
+            if (i != 0) av_strlcat(cmd, ",", sizeof(cmd));
+            ff_rdt_subscribe_rule(cmd, sizeof(cmd), i, 0);
+            if (rt->transport == RTSP_TRANSPORT_RDT)
+                ff_rdt_subscribe_rule2(
+                    rt->rtsp_streams[i]->tx_ctx,
+                    cmd, sizeof(cmd), i, 0);
+        }
+        av_strlcat(cmd, "\r\n", sizeof(cmd));
+        rtsp_send_cmd(s, cmd, reply, NULL);
+        if (reply->status_code != RTSP_STATUS_OK)
+            return AVERROR_INVALIDDATA;
+        rt->need_subscription = 0;
+
+        if (rt->state == RTSP_STATE_PLAYING)
+            rtsp_read_play (s);
+    }
+	else
+	{
+		count++;
+		if (count>1000)
+		{
+			count=0;
+		int i;
+        RTSPHeader reply1, *reply = &reply1;
+        char cmd[1024];
+			
+			snprintf(cmd, sizeof(cmd),
+					 "OPTIONS %s RTSP/1.0\r\n", s->filename);
+			if (rt->server_type == RTSP_SERVER_REAL)
+				av_strlcat(cmd,
+						   /**
+				 * The following entries are required for proper
+				 * streaming from a Realmedia server. They are
+				 * interdependent in some way although we currently
+				 * don't quite understand how. Values were copied
+				 * from mplayer SVN r23589.
+				 * @param CompanyID is a 16-byte ID in base64
+				 * @param ClientChallenge is a 16-byte ID in hex
+				 */
+						   "ClientChallenge: 9e26d33f2984236010ef6253fb1887f7\r\n"
+						   "PlayerStarttime: [28/03/2003:22:50:23 00:00]\r\n"
+						   "CompanyID: KnKV4M4I/B2FjJ1TToLycw==\r\n"
+						   "GUID: 00000000-0000-0000-0000-000000000000\r\n",
+						   sizeof(cmd));
+			rtsp_send_cmd(s, cmd, reply, NULL);
+			if (reply->status_code != RTSP_STATUS_OK) {
+				fprintf(stderr,"BAD OPTIONS reply: %d\n",reply->status_code);
+				return AVERROR_INVALIDDATA;
+
+			}
+			
+
+		fprintf(stderr,"OPTIONS reply: %d\n",reply->status_code);
+		}
+		
+	}
+    /* get next frames from the same RTP packet */
+    if (rt->cur_tx) {
+        if (rt->transport == RTSP_TRANSPORT_RDT)
+            ret = ff_rdt_parse_packet(rt->cur_tx, pkt, NULL, 0);
+        else
+            ret = rtp_parse_packet(rt->cur_tx, pkt, NULL, 0);
+        if (ret == 0) {
+            rt->cur_tx = NULL;
+            return 0;
+        } else if (ret == 1) {
+            return 0;
+        } else {
+            rt->cur_tx = NULL;
+        }
+    }
+
+    /* read next RTP packet */
+ redo:
+    switch(rt->lower_transport) {
+    default:
+    case RTSP_LOWER_TRANSPORT_TCP:
+        len = tcp_read_packet(s, &rtsp_st, buf, sizeof(buf));
+        break;
+    case RTSP_LOWER_TRANSPORT_UDP:
+    case RTSP_LOWER_TRANSPORT_UDP_MULTICAST:
+        len = udp_read_packet(s, &rtsp_st, buf, sizeof(buf));
+        if (len >=0 && rtsp_st->tx_ctx && rt->transport == RTSP_TRANSPORT_RTP)
+            rtp_check_and_send_back_rr(rtsp_st->tx_ctx, len);
+        break;
+    }
+    if (len < 0)
+        return len;
+    if (rt->transport == RTSP_TRANSPORT_RDT)
+        ret = ff_rdt_parse_packet(rtsp_st->tx_ctx, pkt, buf, len);
+    else
+        ret = rtp_parse_packet(rtsp_st->tx_ctx, pkt, buf, len);
+    if (ret < 0)
+        goto redo;
+    if (ret == 1) {
+        /* more packets may follow, so we save the RTP context */
+        rt->cur_tx = rtsp_st->tx_ctx;
+    }
+    return 0;
+}
+
+
+tcp_read_packet
+
+	//    if (len > buf_size || len < 12)
+	//       goto redo;
+	
+	    if (len > buf_size || len < 11)
+	       goto redo;
+
+
+
+Major modifications:
+config.h
+ffmpeg.c

@@ -147,7 +147,6 @@
                     <navigationItem key="navigationItem" title="Streams" id="8Gx-ir-dYm">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="MJn-4M-ot2"/>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3v-Dz-G8V" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -209,19 +208,12 @@
                             <outlet property="delegate" destination="v5V-xO-Fue" id="9Sn-7r-xGI"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="82t-9X-bEN"/>
-                        <barButtonItem systemItem="edit" id="6aP-6F-gSK">
-                            <connections>
-                                <segue destination="VfI-J4-yda" kind="modal" id="VQY-xG-yZB"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Radios" id="Xy4-Rt-oiK">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="PvZ-M7-I7L"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BCw-4z-sio" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -342,7 +334,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="detailDescriptionLabel" destination="Vur-Wm-csv" id="L1s-qS-DrG"/>

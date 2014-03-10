@@ -11,5 +11,6 @@
 
 - (void)loadImageFromURL:(NSString*)path list:(NSMutableDictionary*)list;
 - (UIImage*)getImage:(NSString*)path list:(NSMutableDictionary*)list imageView:(UIImageView*)view cell:(UIView*)cell;
++ (UIImage*)getImage:(NSString*)path imageView:(UIImageView*)view cell:(UIView*)cell;
 
 @end

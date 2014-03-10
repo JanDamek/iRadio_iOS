@@ -1,0 +1,211 @@
+// !$*UTF8*$!
+{
+	0867D690FE84028FC02AAC07 /* Project object */ = {
+		activeBuildConfigurationName = Distribution;
+		activeTarget = D2AAC07D0554694100DB518D /* libavcodec */;
+		codeSenseManager = C6819D35107BB6EC00778291 /* Code sense */;
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					716,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 282071782;
+			PBXWorkspaceStateSaveDate = 282071782;
+		};
+		perUserProjectItems = {
+			C628C22810CF0E1C006598C8 /* PBXTextBookmark */ = C628C22810CF0E1C006598C8 /* PBXTextBookmark */;
+			C628C22A10CF0E1C006598C8 /* PBXTextBookmark */ = C628C22A10CF0E1C006598C8 /* PBXTextBookmark */;
+			C628C28F10CF139B006598C8 /* PBXTextBookmark */ = C628C28F10CF139B006598C8 /* PBXTextBookmark */;
+			C628C2C710CF14CF006598C8 /* PBXTextBookmark */ = C628C2C710CF14CF006598C8 /* PBXTextBookmark */;
+			C628C2C810CF14CF006598C8 /* PBXTextBookmark */ = C628C2C810CF14CF006598C8 /* PBXTextBookmark */;
+			C628C2CB10CF14CF006598C8 /* PBXTextBookmark */ = C628C2CB10CF14CF006598C8 /* PBXTextBookmark */;
+			C6CF3C71109BCB4500D7CBC7 /* PBXTextBookmark */ = C6CF3C71109BCB4500D7CBC7 /* PBXTextBookmark */;
+			C6FE707510AE3A5F0024C1BF /* PBXTextBookmark */ = C6FE707510AE3A5F0024C1BF /* PBXTextBookmark */;
+			C6FE707610AE3A5F0024C1BF /* PBXTextBookmark */ = C6FE707610AE3A5F0024C1BF /* PBXTextBookmark */;
+		};
+		sourceControlManager = C6819D34107BB6EC00778291 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	5D8208641011270A00B7A2B9 /* utils.c */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.c;
+		path = utils.c;
+		sourceTree = "<group>";
+	};
+	5D820A9C101131AB00B7A2B9 /* avcodec.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1710, 43176}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 2878}";
+			sepNavWindowFrame = "{{153, 114}, {1769, 1333}}";
+		};
+	};
+	5D820ACB101131AB00B7A2B9 /* dsputil.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {894, 12964}}";
+			sepNavSelRange = "{30266, 13}";
+			sepNavVisRange = "{29197, 1502}";
+			sepNavWindowFrame = "{{15, 240}, {1769, 1333}}";
+		};
+	};
+	5D820AE8101131AC00B7A2B9 /* fft.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1710, 5250}}";
+			sepNavSelRange = "{3133, 10}";
+			sepNavVisRange = "{1178, 2861}";
+			sepNavWindowFrame = "{{861, 243}, {1769, 1333}}";
+		};
+	};
+	5D820B8A101131AC00B7A2B9 /* opt.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {894, 6342}}";
+			sepNavSelRange = "{14841, 0}";
+			sepNavVisRange = "{12791, 1925}";
+			sepNavWindowFrame = "{{107, 156}, {1769, 1333}}";
+		};
+	};
+	5D820B8B101131AC00B7A2B9 /* opt.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {973, 2436}}";
+			sepNavSelRange = "{1044, 17}";
+			sepNavVisRange = "{0, 1477}";
+			sepNavWindowFrame = "{{130, 135}, {1769, 1333}}";
+		};
+	};
+	5D820B8C101131AC00B7A2B9 /* options.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1026, 6734}}";
+			sepNavSelRange = "{41724, 0}";
+			sepNavVisRange = "{40166, 1558}";
+		};
+	};
+	C628C22810CF0E1C006598C8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5D820ACB101131AB00B7A2B9 /* dsputil.h */;
+		name = "dsputil.h: 723";
+		rLen = 13;
+		rLoc = 30266;
+		rType = 0;
+		vrLen = 1502;
+		vrLoc = 29197;
+	};
+	C628C22A10CF0E1C006598C8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5D820ACB101131AB00B7A2B9 /* dsputil.h */;
+		name = "dsputil.h: 723";
+		rLen = 13;
+		rLoc = 30266;
+		rType = 0;
+		vrLen = 1502;
+		vrLoc = 29197;
+	};
+	C628C28F10CF139B006598C8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5D820B8C101131AC00B7A2B9 /* options.c */;
+		name = "options.c: 415";
+		rLen = 0;
+		rLoc = 40600;
+		rType = 0;
+		vrLen = 1906;
+		vrLoc = 0;
+	};
+	C628C2C710CF14CF006598C8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5D820B8C101131AC00B7A2B9 /* options.c */;
+		name = "options.c: 454";
+		rLen = 0;
+		rLoc = 41724;
+		rType = 0;
+		vrLen = 1540;
+		vrLoc = 40184;
+	};
+	C628C2C810CF14CF006598C8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5D820B8A101131AC00B7A2B9 /* opt.c */;
+		name = "opt.c: 434";
+		rLen = 0;
+		rLoc = 14841;
+		rType = 0;
+		vrLen = 1925;
+		vrLoc = 12791;
+	};
+	C628C2CB10CF14CF006598C8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5D820B8A101131AC00B7A2B9 /* opt.c */;
+		name = "opt.c: 437";
+		rLen = 0;
+		rLoc = 14841;
+		rType = 0;
+		vrLen = 1611;
+		vrLoc = 13007;
+	};
+	C6819D34107BB6EC00778291 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryName = alans;
+		};
+	};
+	C6819D35107BB6EC00778291 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	C6CF3C71109BCB4500D7CBC7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5D8208641011270A00B7A2B9 /* utils.c */;
+		rLen = 13;
+		rLoc = 27378;
+		rType = 0;
+	};
+	C6CF3C73109BCB4500D7CBC7 /* utils.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = utils.c;
+		path = /Users/alans/Documents/development/ffmpeg_projects/ffmpeg/libavformat/utils.c;
+		sourceTree = "<absolute>";
+	};
+	C6FE707510AE3A5F0024C1BF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C6CF3C73109BCB4500D7CBC7 /* utils.c */;
+		name = "utils.c: 919";
+		rLen = 13;
+		rLoc = 27378;
+		rType = 0;
+		vrLen = 2072;
+		vrLoc = 27226;
+	};
+	C6FE707610AE3A5F0024C1BF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C6CF3C73109BCB4500D7CBC7 /* utils.c */;
+		name = "utils.c: 919";
+		rLen = 13;
+		rLoc = 27378;
+		rType = 0;
+		vrLen = 2072;
+		vrLoc = 27226;
+	};
+	D2AAC07D0554694100DB518D /* libavcodec */ = {
+		activeExec = 0;
+	};
+}

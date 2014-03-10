@@ -1,0 +1,611 @@
+/*
+ * Adobe Flash RTMP protocol support
+ * Copyright (c) 2009 Alan J. Steremberg
+ *
+ * This file is part of FFmpeg.
+ *
+ * FFmpeg is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * FFmpeg is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with FFmpeg; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+ */
+
+/**
+ * @file rtmp.c
+ * @brief Adobe Flash  RTMP protocol support
+ * @author Alan J. Steremberg <alans@wunderground.com>
+ */
+
+#include "rtmp.h"
+#include "flv.h"
+
+#include "libavutil/avstring.h"
+
+#define HAVE_AV_CONFIG_H 1
+#include "avformat.h"
+
+/*  */
+
+/* -- it wants to have a demuxer  */
+#if 0
+
+probe - looks for rtmp in the url
+
+
+header - opens connection and creates the streams -- is this obvious?
+read packet - fills out a packet structure for one packet from the stream, and says what stream it was on??
+
+enum RTMPClientState {
+    RTMP_STATE_IDLE,
+    RTMP_STATE_PLAYING,
+    RTMP_STATE_PAUSED,
+};
+
+typedef struct RTMPState {
+    URLContext *rtmp_hd; /* RTMP TCP connexion handle */
+    int nb_rtmp_streams;
+    struct RTMPStream **rtmp_streams;
+
+    enum RTMPClientState state;
+    int64_t seek_timestamp;
+
+} RTMPState;
+#endif
+
+/*
+ On 9/3/06, Yves Kavanovich <[EMAIL PROTECTED]> wrote:
+ Hello,
+ 
+ After some reverse engineering of the Flash Player and Flash Media Server for
+ Windows I have further information on how the RTMP handshake data is
+ constructed.
+ 
+ >From http://www.osflash.org/rtmp/protocol we already know that both the
+ client and server generate a chunk of 1536 (0x600) bytes each that each side
+ must respond with for the handshake to succeed.
+ 
+ The format of this chunk is the same from client and server: 
+ 
+ Bytes 0 to 3       A 32-bit integer holding the system uptime in
+ milliseconds, stored in big-endian format
+ 
+ Bytes 4 to 7       Always zero
+ 
+ Bytes 8 to 1535    Pseudo-random sequence as described below 
+ 
+ 
+ The last 1528 bytes of the data are constructed using a pseudo-random number
+ generator seeded with the least significant byte of the system uptime.
+ 
+ C code to make the entire chunk is as follows:
+*/
+
+#include <sys/resource.h>
+
+#define kHandshakeChunkSize 1536
+
+
+static int rtmp_probe(AVProbeData *p)
+{
+    if (av_strstart(p->filename, "rtmp:", NULL))
+        return AVPROBE_SCORE_MAX;
+    return 0;
+}
+
+
+static int invoke_cmd()
+{
+}
+static int send_packet(AVFormatContext *s,int channel, int type, uint8_t *body, int bodylen)
+{
+	ByteIOContext *pb;
+    uint8_t *buf;
+    int len;
+	
+	if (url_open_dyn_buf(&pb) < 0)
+        return -1;
+	
+	put_byte(pb,0x03); // 12 byte header
+	// timestamp
+	// message size in bytes
+	// message type
+	// stream id
+	
+	
+	len = url_close_dyn_buf(pb, &buf);
+    if ((len > 0) && buf) {
+		
+		// write data to the wire.. 
+		
+	}
+	
+}
+//
+// AJS TODO these should be shared between FLV and here..
+//
+
+
+static void put_amf_string(ByteIOContext *pb, const char *str)
+{
+    size_t len = strlen(str);
+    put_be16(pb, len);
+    put_buffer(pb, str, len);
+}
+
+static void put_amf_double(ByteIOContext *pb, double d)
+{
+    put_byte(pb, AMF_DATA_TYPE_NUMBER);
+    put_be64(pb, av_dbl2int(d));
+}
+
+static void put_amf_bool(ByteIOContext *pb, int b) {
+    put_byte(pb, AMF_DATA_TYPE_BOOL);
+    put_byte(pb, !!b);
+}
+
+
+static void put_rtmp_string(ByteIOContext *pb, char *string)
+{
+	put_byte(pb,RTMP_INVOKE_DATATYPE_STRING);
+	put_amf_string(pb, string);
+}
+
+static int invoke_createStream(AVFormatContext *s,double streamId)
+{
+	ByteIOContext *pb;
+    uint8_t *buf;
+    int len;
+	
+	if (url_open_dyn_buf(&pb) < 0)
+        return -1;
+	
+	put_rtmp_string( pb, "createStream");
+	put_amf_double(pb, streamId);
+	put_byte(pb,0x05);
+	
+	len = url_close_dyn_buf(pb, &buf);
+    if ((len > 0) && buf) {
+
+	
+		send_packet(s,0x03, RTMP_DATATYPE_INVOKE, buf, len);
+	}
+}
+
+static int invoke_connect(AVFormatContext *s)
+{
+	ByteIOContext *pb;
+    uint8_t *buf;
+    int len;
+	
+	if (url_open_dyn_buf(&pb) < 0)
+        return -1;
+	
+	put_rtmp_string( pb, "connect");
+	put_amf_double(pb, 1.0);
+	put_byte(pb,AMF_DATA_TYPE_OBJECT);
+	
+	//
+	// app
+	//
+	
+	//
+	// flashVer
+	//
+	put_amf_string( pb, "connect");
+	put_byte(pb,RTMP_INVOKE_DATATYPE_STRING);
+	put_amf_string(pb, "WIN 10,0,1.2,36");
+
+	//
+	// swfUrl
+	//
+	
+	//
+	// tcUrl
+	//
+
+	// fpad
+	put_amf_string( pb, "fpad");
+	put_amf_bool(pb,0);
+
+	//
+	// capabilities 15.0
+	//
+	put_amf_string( pb, "capabilities");
+	put_amf_double(pb, 15.0);
+
+	//
+	// audioCodecs 1639.0
+	//
+	put_amf_string( pb, "audioCodecs");
+	put_amf_double(pb, 1639.0);
+	
+	//
+	// videoCodecs 252.0
+	//
+	put_amf_string( pb, "videoCodecs");
+	put_amf_double(pb, 252.0);
+	
+	//
+	// videoFunction 1.0
+	//
+	put_amf_string( pb, "videoFunction");
+	put_amf_double(pb, 1.0);
+
+	
+	//
+	// pageUrl
+	//
+	
+	// end of object - 0x00 0x00 0x09
+	put_byte(pb, 0x00);
+	put_byte(pb, 0x00);
+	put_byte(pb, 0x09);
+	
+	len = url_close_dyn_buf(pb, &buf);
+    if ((len > 0) && buf) {
+		
+		
+		send_packet(s,0x03, RTMP_DATATYPE_INVOKE, buf, len);
+	}
+}
+
+
+static int invoke_pause(AVFormatContext *s)
+{
+	ByteIOContext *pb;
+    uint8_t *buf;
+    int len;
+	
+	if (url_open_dyn_buf(&pb) < 0)
+        return -1;
+	
+	put_rtmp_string( pb, "pause");
+	put_amf_double(pb, 0);
+	put_byte(pb,0x05);
+	put_amf_bool(pb,1);
+	put_amf_double(pb, 0);
+	
+	
+	len = url_close_dyn_buf(pb, &buf);
+    if ((len > 0) && buf) {
+		
+		send_packet(s,0x08, RTMP_DATATYPE_INVOKE, buf, len);
+	}	
+}
+
+
+static int invoke_seek(AVFormatContext *s,double seekTime)
+{
+	ByteIOContext *pb;
+    uint8_t *buf;
+    int len;
+	
+	if (url_open_dyn_buf(&pb) < 0)
+        return -1;
+	
+	put_rtmp_string( pb, "seek");
+	put_amf_double(pb, 0);
+	put_byte(pb,0x05);
+	put_amf_double(pb, seekTime);
+	
+	len = url_close_dyn_buf(pb, &buf);
+    if ((len > 0) && buf) {
+		
+		
+		send_packet(s,0x08, RTMP_DATATYPE_INVOKE, buf, len);
+	}
+}
+
+static int server_bw(AVFormatContext *s)
+{
+	ByteIOContext *pb;
+    uint8_t *buf;
+    int len;
+	
+	if (url_open_dyn_buf(&pb) < 0)
+        return -1;
+	
+	put_be32(pb,0x001312d0); // AJS -- what is this value, GPL violation?
+	
+	len = url_close_dyn_buf(pb, &buf);
+    if ((len > 0) && buf) {
+		
+		
+		send_packet(s,0x02, RTMP_DATATYPE_SERVERBW, buf, len);
+	}
+}
+
+
+static int invoke_play(AVFormatContext *s)
+{
+	ByteIOContext *pb;
+    uint8_t *buf;
+    int len;
+	
+	if (url_open_dyn_buf(&pb) < 0)
+        return -1;
+	
+	put_rtmp_string( pb, "play");
+	put_amf_double(pb, 0);
+	put_byte(pb,0x05);
+	put_rtmp_string( pb, s->filename);
+	put_amf_double(pb, 0);
+	
+	
+	
+	len = url_close_dyn_buf(pb, &buf);
+    if ((len > 0) && buf) {
+		
+		
+		send_packet(s,0x08, RTMP_DATATYPE_INVOKE, buf, len);
+	}
+	
+}
+
+static int hand_shake(AVFormatContext *s)
+{
+	RTMPState *rt = s->priv_data;
+
+	unsigned char client_chunk[kHandshakeChunkSize];
+	unsigned char client_match_chunk[kHandshakeChunkSize];
+	unsigned char server_chunk[kHandshakeChunkSize];
+ int i, p, su;
+	unsigned char packetType=0x3;
+	struct rusage r_usage;
+	int res;
+
+	int err=getrusage(RUSAGE_SELF, &r_usage);
+	if (err==-1)
+		return AVERROR(EIO);
+	
+	/* retrieve the system uptime */
+/* this is actually the process time... */	
+	su = r_usage.ru_utime.tv_sec;
+	
+/* set first four bytes to system uptime as big-endian */
+	client_chunk[0] = (su >> 24) & 0xff; 
+	client_chunk[1] = (su >> 16) & 0xff;
+	client_chunk[2] = (su >> 8) & 0xff;
+	client_chunk[3] = su & 0xff;
+
+	/* zero next four bytes */
+	for (i = 4; i < 8; i++) {
+		client_chunk[i] = 0; 
+	}
+
+	/* seed the PRNG */
+	p = su % 256;
+
+	/* fill every other byte in the rest of the chunk with
+	 pseudo-random sequence */
+	for (i = 8; i < 1536; i += 2) {
+		p = (12111221 * p + 1) % 256; 
+		client_chunk[i] = p & 0xff;
+	}
+/*
+ 
+However, this only accounts for every other byte in the last 1528, due to the
+"i += 2" in the for loop. The algorithm does not initialise the rest of the
+chunk to any known pattern, so the contents are whatever was in memory
+previous to the chunk memory being allocated. As an example:
+
+**    **    **    **    **    **    **    **
+5e 00 f7 00 e4 00 35 f8 3a 00 83 f8 e0 05 61 00 
+56 7c 4f 32 1c 7c cd 00 b2 00 5b fc 98 05 79 e3
+4e 05 a7 00 54 00 65 ff 2a ff 33 00 50 00 91 fc
+46 05 ff 05 8c 7c fd e4 a2 7c 0b 05 08 7c a9 fd
+**    **    **    **    **    **    **    **
+
+The data in all columns marked with asterisks have been made by the PRNG, and
+all the rest of the data was like that at allocation.
+
+As this is a local variable declaration inside a function, the chunk is
+allocated from the program stack. The uninitialized data you see in a
+handshake packet is return addresses, function parameters and local variable
+allocations previously used in other parts of the program!
+
+YK 
+*/
+	
+	
+	//
+	//  write the 0x3
+	//
+	packetType=0x3;
+	url_write(rt->rtmp_hd, &packetType, 1);
+	
+
+	//
+	//  write the chunk
+	//
+	url_write(rt->rtmp_hd, client_chunk, sizeof(client_chunk));
+	
+	//
+	//  read the header - should be 0x3
+	//
+	res=url_read(rt->rtmp_hd,&packetType,1);
+	if (res!=1)
+		return AVERROR(EIO);
+
+	if (packetType!=0x3)
+	{
+		av_log(s, AV_LOG_DEBUG, "we didn't get back the packetType of 0x3 we thought we would [%x]",packetType);
+	}
+	
+	//
+	//  read the server chunk 
+	//
+	
+	res=url_read(rt->rtmp_hd,server_chunk,sizeof(server_chunk));
+	if (res!=sizeof(server_chunk))
+		return AVERROR(EIO);
+	
+	//
+	//  read the client match
+	//
+	res=url_read(rt->rtmp_hd,client_match_chunk,sizeof(client_match_chunk));
+	if (res!=sizeof(client_match_chunk))
+		return AVERROR(EIO);
+	
+	//
+	//  check the client match
+	//
+	
+	if (memcmp(client_match_chunk, client_chunk , sizeof(client_match_chunk)) != 0)
+	{
+		av_log(s, AV_LOG_DEBUG, "handshake failed chunk does not match");
+	}
+	
+	//
+	//  send the server chunk back
+	//
+	url_write(rt->rtmp_hd, server_chunk, sizeof(server_chunk));
+
+	return 0;
+}
+	
+
+static int rtmp_read_header(AVFormatContext *s,
+                            AVFormatParameters *ap)
+{
+
+    RTMPState *rt = s->priv_data;
+    char auth[1024],host[1024], path[1024], tcpname[1024];
+    URLContext *rtmp_hd;
+    int port, err;
+//    RTMPHeader reply1, *reply = &reply1;
+  //  unsigned char *content = NULL;
+
+    /* extract hostname and port */
+    url_split(NULL, 0, /* first two are prot */
+		 auth, sizeof(auth),
+              host, sizeof(host), &port, path, sizeof(path), s->filename);
+    if (port < 0)
+        port = RTMP_DEFAULT_PORT;
+
+	//
+	// open a connection to the server
+	//
+	
+    snprintf(tcpname, sizeof(tcpname), "tcp://%s:%d", host, port);
+    err = url_open(&rtmp_hd, tcpname, URL_RDWR);
+	if (err<0) return AVERROR(EIO);
+	
+	rt->rtmp_hd=rtmp_hd;
+	
+	
+	//
+	//  Perform the handshake
+	//
+	err = hand_shake(s);
+	if (err!=0)
+		return AVERROR(EIO);
+	
+	//
+	//  now we have to open the streams?
+	//
+	
+	//
+	// for now let's just create an audio and a video stream
+	//
+	
+	AVStream *st = av_new_stream(s, 1);
+    if (!st)
+		return AVERROR(ENOMEM);
+    st->codec->codec_type =  CODEC_TYPE_AUDIO;
+    av_set_pts_info(st, 32, 1, 1000); /* 32 bit pts in ms */
+
+	st = av_new_stream(s, 0);
+    if (!st)
+		return AVERROR(ENOMEM);
+    st->codec->codec_type =  CODEC_TYPE_VIDEO;
+    av_set_pts_info(st, 32, 1, 1000); /* 32 bit pts in ms */
+	
+	
+	return 0;
+}
+
+static int rtmp_read_close(AVFormatContext *s)
+{
+    RTMPState *rt = s->priv_data;
+	
+    url_close(rt->rtmp_hd);
+
+    return 0;
+}
+
+static int rtmp_read_seek(AVFormatContext *s, int stream_index,
+                          int64_t timestamp, int flags)
+{
+   // RTMPState *rt = s->priv_data;
+	
+	av_log(s, AV_LOG_DEBUG, "rtmp_read_seek not implemented yet");
+
+	
+#if 0	
+    rt->seek_timestamp = av_rescale_q(timestamp, s->streams[stream_index]->time_base, AV_TIME_BASE_Q);
+    switch(rt->state) {
+		default:
+		case RTSP_STATE_IDLE:
+			break;
+		case RTSP_STATE_PLAYING:
+			if (rtsp_read_play(s) != 0)
+				return -1;
+			break;
+		case RTSP_STATE_PAUSED:
+			rt->state = RTSP_STATE_IDLE;
+			break;
+    }
+#endif
+    return 0;
+}
+
+static int rtmp_read_play(AVFormatContext *s)
+{
+//    RTMPState *rt = s->priv_data;
+	av_log(s, AV_LOG_DEBUG, "rtsp_read_play not implemented yet");
+
+	return 0;
+}
+
+static int rtsp_read_pause(AVFormatContext *s)
+{
+//	RTMPState *rt = s->priv_data;
+	av_log(s, AV_LOG_DEBUG, "rtsp_read_pause not implemented yet");
+	return 0;
+		
+}
+
+
+
+
+
+
+
+
+
+#if CONFIG_RTMP_DEMUXER
+AVInputFormat rtmp_demuxer = {
+    "rtmp",
+    NULL_IF_CONFIG_SMALL("RTMP input format"),
+    sizeof(RTMPState),
+    rtmp_probe,  /* DONE */
+    rtmp_read_header, /* need to open the connection */
+    rtmp_read_packet,
+    rtmp_read_close,
+    rtmp_read_seek,
+    .flags = AVFMT_NOFILE,
+    .read_play = rtmp_read_play,
+    .read_pause = rtmp_read_pause,
+};
+#endif
+

@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-#import "Categorie.h"
+#import "Radio.h"
 
 @interface comRadioViewController : UITableViewController <NSFetchedResultsControllerDelegate, UISearchBarDelegate>
 
-@property (strong, nonatomic) Categorie *detailItem;
+@property (weak, nonatomic) Categorie *parentItem;
 
 @end

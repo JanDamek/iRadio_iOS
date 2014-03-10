@@ -2,6 +2,8 @@
 
 @implementation AsyncImageView
 
+static NSMutableDictionary *_list_static = nil;
+
 - (void)dealloc {
 	[connection cancel]; 
 }
@@ -22,7 +24,7 @@
 }
 
 - (void)connection:(NSURLConnection *)theConnection didReceiveData:(NSData *)incrementalData {
-	if (data==nil) { data = [[NSMutableData alloc] initWithCapacity:2048]; } 
+	if (data==nil) { data = [[NSMutableData alloc] initWithCapacity:4096]; }
 	[data appendData:incrementalData];
 }
 
@@ -43,6 +45,15 @@
         }
     }
     data=nil;
+}
+
++ (UIImage*)getImage:(NSString*)path imageView:(UIImageView*)view cell:(UIView *)cell
+{
+    if (!_list_static){
+        _list_static = [[NSMutableDictionary alloc]init];
+    }
+
+    return [[[AsyncImageView alloc]init] getImage:path list:_list_static imageView:view cell:cell];
 }
 
 - (UIImage*)getImage:(NSString*)path list:(NSMutableDictionary*)list imageView:(UIImageView*)view cell:(UIView *)cell

@@ -7,44 +7,72 @@
 //
 
 #import "comDetailViewController.h"
+#import "GADBannerView.h"
+#import "comBannerView.h"
 
 @interface comDetailViewController ()
+@property (weak, nonatomic) IBOutlet UIView *adBanner;
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
+@property (strong, nonatomic) GADBannerView *banner;
+
 - (void)configureView;
 @end
 
 @implementation comDetailViewController
 
+@synthesize adBanner = _adBanner;
+@synthesize banner = _banner;
+@synthesize radio = _radio;
+@synthesize stream = _stream;
+
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(id)newDetailItem
+- (void)setRadio:(Radio *)newDetailItem
 {
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
+    if (_radio != newDetailItem) {
+        _radio = newDetailItem;
         
         // Update the view.
         [self configureView];
+        
+        //TODO: zvoleni vychoziho streamu podle pripojeni
     }
 
     if (self.masterPopoverController != nil) {
         [self.masterPopoverController dismissPopoverAnimated:YES];
     }        
 }
+-(void)setStream:(Stream *)streamNew{
+    if (_stream != streamNew){
+        _stream = streamNew;
+        //TODO: rovest nacteni novym streamem
+    }
+}
 
 - (void)configureView
 {
     // Update the user interface for the detail item.
 
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [[self.detailItem valueForKey:@"timeStamp"] description];
+    if (self.radio) {
+        self.detailDescriptionLabel.text = [self.radio.timeStamp description];
     }
+    if (_banner){
+        [_banner removeFromSuperview];
+        _banner = [comBannerView getBannerView:self];
+        [_adBanner addSubview:_banner];
+    }
+   
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	
     [self configureView];
+    
+    _banner = [comBannerView getBannerView:self];
+    
+    [_adBanner addSubview:_banner];
 }
 
 - (void)didReceiveMemoryWarning
