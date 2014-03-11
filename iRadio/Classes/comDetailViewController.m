@@ -46,6 +46,7 @@
     if (_stream != streamNew){
         _stream = streamNew;
         //TODO: rovest nacteni novym streamem
+        [self configureView];
     }
 }
 
@@ -64,15 +65,13 @@
    
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	
-    [self configureView];
-    
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+
     _banner = [comBannerView getBannerView:self];
-    
     [_adBanner addSubview:_banner];
+
+    [self configureView];
 }
 
 - (void)didReceiveMemoryWarning

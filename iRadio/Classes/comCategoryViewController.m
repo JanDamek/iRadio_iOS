@@ -51,7 +51,11 @@ static NSString *fetchCahe = @"CategoriesTable";
     
     self.detailViewController = (comDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:self.navigationItem.rightBarButtonItem,self.editButtonItem,nil];
+}
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
     self.tableView.tableFooterView = [comBannerView getBannerView:self];
 }
 

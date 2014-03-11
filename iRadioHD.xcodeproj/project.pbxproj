@@ -216,8 +216,11 @@
 		F5F739F7188093F2009DD284 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F59CBDD918CF7A54000C6FCD /* CoreTelephony.framework */,
 				F59CBDD718CF79B7000C6FCD /* libGoogleAdMobAds.a */,
+				F5F73A711880958B009DD284 /* libsqlite3.0.dylib */,
+				F5F73A721880958B009DD284 /* libsqlite3.dylib */,
+				F5F73A731880958B009DD284 /* libz.dylib */,
+				F59CBDD918CF7A54000C6FCD /* CoreTelephony.framework */,
 				F5B353791884A1320011ADD7 /* StoreKit.framework */,
 				F5F73A6A1880958B009DD284 /* AdSupport.framework */,
 				F5F73A6B1880958B009DD284 /* AudioToolbox.framework */,
@@ -226,9 +229,6 @@
 				F5F73A6E1880958B009DD284 /* CoreAudio.framework */,
 				F5F73A6F1880958B009DD284 /* CoreData.framework */,
 				F5F73A701880958B009DD284 /* CoreFoundation.framework */,
-				F5F73A711880958B009DD284 /* libsqlite3.0.dylib */,
-				F5F73A721880958B009DD284 /* libsqlite3.dylib */,
-				F5F73A731880958B009DD284 /* libz.dylib */,
 				F5F73A751880958B009DD284 /* MediaPlayer.framework */,
 				F5F73A761880958B009DD284 /* MessageUI.framework */,
 				F5F73A771880958B009DD284 /* QuartzCore.framework */,

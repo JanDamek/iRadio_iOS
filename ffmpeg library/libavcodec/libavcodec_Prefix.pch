@@ -1,4 +1,0 @@
-#define HAVE_AV_CONFIG_H
-
-#include "avcodec.h"
-#include "opt.h"
